@@ -16,7 +16,9 @@ namespace Domain_Layer
         private void CreateExpense(int stId, string description, int amount)
         {
             throw new NotImplementedException();
-        }          private void DeleteExpense(int exId, int stId)
+        }
+
+        private void DeleteExpense(int exId, int stId)
         {
             throw new NotImplementedException();
         }
