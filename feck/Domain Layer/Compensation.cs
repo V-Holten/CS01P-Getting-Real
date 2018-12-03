@@ -8,11 +8,18 @@ namespace Domain_Layer
 {
     class Compensation
     {
-        private int Id;
+        private int CompensationId;
         private string Title;
         private DateTime Date;
         private List<Expense> Expenses;
         private Employee Employee;
+
+        public Compensation(int cpId, DateTime date, Employee employee)
+        {
+            CompensationId = cpId;
+            Date = date;
+            Employee = employee;
+        }
 
         private void CreateExpense(DateTime date, string description, int amount)
         {

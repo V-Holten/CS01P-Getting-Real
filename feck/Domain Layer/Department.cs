@@ -23,9 +23,9 @@ namespace Domain_Layer
             throw new NotImplementedException();
         }
 
-        private void CreateCompensation(int title, DateTime date, Employee employee)
+        private void CreateCompensation(int id, DateTime date, Employee employee)
         {
-            throw new NotImplementedException();
+            Compensations.Add(new Compensation(id, date, employee));
         }
     }
 }
