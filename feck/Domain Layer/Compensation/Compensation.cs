@@ -20,7 +20,7 @@ namespace Domain_Layer.Compensation
             Employee = employee;
         }
 
-        public abstract void CreateExpense(string title, DateTime date, string Description, int amount);
+        public abstract void CreateExpense(string title, DateTime date, string description, int amount);
 
         public abstract void DeleteExpense(int id);
     }
