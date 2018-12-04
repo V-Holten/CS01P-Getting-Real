@@ -41,7 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Compensation.cs" />
+    <Compile Include="Compensation\Compensation.cs" />
+    <Compile Include="Compensation\TravelCompensation.cs" />
+    <Compile Include="Compensation\DrivingCompensation.cs" />
     <Compile Include="Department.cs" />
     <Compile Include="Expense\DrivingExpense.cs" />
     <Compile Include="Employee.cs" />
