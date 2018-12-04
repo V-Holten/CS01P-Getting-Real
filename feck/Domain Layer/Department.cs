@@ -7,7 +7,7 @@ using Domain_Layer.Compensation;
 
 namespace Domain_Layer
 {
-    class Department
+    public class Department
     {
         private int Id;
         private string Title;

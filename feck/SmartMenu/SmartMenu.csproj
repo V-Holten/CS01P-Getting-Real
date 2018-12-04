@@ -4,17 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A660DBD3-BED7-4DBE-A359-26B5C51D0FE1}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>Presentation_Layer</RootNamespace>
-    <AssemblyName>Presentation Layer</AssemblyName>
+    <ProjectGuid>{A08D49AD-A5D4-46AA-9F89-F15293152901}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SmartMenu</RootNamespace>
+    <AssemblyName>SmartMenu</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +23,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -43,24 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Binding.cs" />
-    <Compile Include="MenuItem.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="IBinding.cs" />
+    <Compile Include="IMenuItem.cs" />
+    <Compile Include="SmartMenu.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ShowAllCompensations.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Domain Layer\Domain Layer.csproj">
-      <Project>{9abb3604-f60a-49e2-baba-f48ca21e3b40}</Project>
-      <Name>Domain Layer</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SmartMenu\SmartMenu.csproj">
-      <Project>{A08D49AD-A5D4-46AA-9F89-F15293152901}</Project>
-      <Name>SmartMenu</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
