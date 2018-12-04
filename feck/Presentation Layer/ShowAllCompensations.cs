@@ -1,4 +1,5 @@
 ﻿using Domain_Layer;
+using Domain_Layer.Compensation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +20,12 @@ namespace SmartMenu
         public void Activate()
         {
             Console.Clear();
-            Console.WriteLine(Department.ToString());
+            IList<Compensation> compensations = Department.GetAllCompensations();
+            Console.WriteLine("Godtgørelser");
+            foreach (Compensation item in compensations)
+            {
+                Console.WriteLine(item.ToString());
+            }
             Console.ReadKey();
         }
 

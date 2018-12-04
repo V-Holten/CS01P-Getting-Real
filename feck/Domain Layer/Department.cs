@@ -14,13 +14,9 @@ namespace Domain_Layer
         private Employee Boss;
         private List<Compensation.Compensation> Compensations;
 
-        public void GetAllCompensations()
+        public IList<Compensation.Compensation> GetAllCompensations()
         {
-            string result = "Godtgørelser";
-            foreach (Compensation.Compensation item in Compensations)
-            {
-                result += item.ToString() + "\n";
-            }
+            return Compensations.AsReadOnly();            
         }
 
         public void CreateExpense(int stId, string description, int amount)
