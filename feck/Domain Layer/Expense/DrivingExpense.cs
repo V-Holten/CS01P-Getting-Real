@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Domain_Layer.Expense
 {
-    class DrivingExpense : Expense
+    public class DrivingExpense : Expense
     {
     }
 }
