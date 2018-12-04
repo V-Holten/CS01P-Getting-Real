@@ -22,7 +22,14 @@ namespace Domain_Layer.Compensation
 
         public override void DeleteExpense(int id)
         {
-            throw new NotImplementedException();
+            foreach (DrivingExpense item in DrivingExpenses)
+            {
+                if (item.Id == id)
+                {
+                    DrivingExpenses.Remove(item);
+                    return;
+                }
+            }
         }
     }
 }
