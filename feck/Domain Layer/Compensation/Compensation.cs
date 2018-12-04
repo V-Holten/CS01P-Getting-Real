@@ -22,6 +22,6 @@ namespace Domain_Layer.Compensation
 
         public abstract void CreateExpense(string title, DateTime date, string description, int amount);
 
-        public abstract void DeleteExpense(int id);
+        public abstract void DeleteExpense(string title);
     }
 }
