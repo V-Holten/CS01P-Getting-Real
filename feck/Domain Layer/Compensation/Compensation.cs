@@ -6,29 +6,22 @@ using System.Threading.Tasks;
 
 namespace Domain_Layer.Compensation
 {
-    class Compensation
+    abstract class Compensation
     {
-        private int CompensationId;
-        private string Title;
-        private DateTime Date;
-        private List<Expense> Expenses;
-        private Employee Employee;
+        public int Id;
+        public string Title;
+        public DateTime Date;
+        public Employee Employee;
 
-        public Compensation(int cpId, DateTime date, Employee employee)
+        public Compensation(int cpid, DateTime date, Employee employee)
         {
-            CompensationId = cpId;
+            Id = cpid;
             Date = date;
             Employee = employee;
         }
 
-        private void CreateExpense(DateTime date, string description, int amount)
-        {
-            throw new NotImplementedException();
-        }
+        public abstract void CreateExpense(string title, DateTime date, string Description, int amount);
 
-        private void DeleteExpense(int exId)
-        {
-            throw new NotImplementedException();
-        }
+        public abstract void DeleteExpense(int id);
     }
 }
