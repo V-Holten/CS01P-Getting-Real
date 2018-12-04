@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Domain_Layer.Compensation;
 
 namespace Domain_Layer
 {
@@ -11,7 +12,7 @@ namespace Domain_Layer
         private int Id;
         private string Title;
         private Employee Boss;
-        private List<Compensation> Compensations;
+        private List<Compensation.Compensation> Compensations;
 
         private void CreateExpense(int stId, string description, int amount)
         {
@@ -23,9 +24,14 @@ namespace Domain_Layer
             throw new NotImplementedException();
         }
 
-        private void CreateCompensation(int id, DateTime date, Employee employee)
+        private void CreateTravelCompensation(int id, DateTime date, Employee employee)
         {
-            Compensations.Add(new Compensation(id, date, employee));
+            Compensations.Add(new TravelCompensation(id, date, employee));
+        }
+
+        private void CreateDrivingCompensation(int id, DateTime date, Employee employee)
+        {
+            Compensations.Add(new DrivingCompensation(id, date, employee));
         }
     }
 }

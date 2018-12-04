@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Domain_Layer.Compensation
 {
-    abstract class Compensation
+    public abstract class Compensation
     {
         public int Id;
         public string Title;
