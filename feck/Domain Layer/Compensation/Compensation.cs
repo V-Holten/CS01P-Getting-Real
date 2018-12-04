@@ -20,8 +20,14 @@ namespace Domain_Layer.Compensation
             Employee = employee;
         }
 
+        public override string ToString()
+        {
+            return "Titel: " + Title + " Dato: " + Date;
+        }
+
         public abstract void CreateExpense(string title, DateTime date, string description, int amount);
 
         public abstract void DeleteExpense(int id);
+
     }
 }

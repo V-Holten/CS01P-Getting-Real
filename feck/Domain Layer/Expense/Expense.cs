@@ -14,4 +14,5 @@ namespace Domain_Layer.Expense
         public string Title;
         public string Description;
     }
+
 }

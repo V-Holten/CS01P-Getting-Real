@@ -14,22 +14,31 @@ namespace Domain_Layer
         private Employee Boss;
         private List<Compensation.Compensation> Compensations;
 
-        private void CreateExpense(int stId, string description, int amount)
+        public void GetAllCompensations()
+        {
+            string result = "Godtgørelser";
+            foreach (Compensation.Compensation item in Compensations)
+            {
+                result += item.ToString() + "\n";
+            }
+        }
+
+        public void CreateExpense(int stId, string description, int amount)
         {
             throw new NotImplementedException();
         }
 
-        private void DeleteExpense(int exId, int stId)
+        public void DeleteExpense(int exId, int stId)
         {
             throw new NotImplementedException();
         }
 
-        private void CreateTravelCompensation(int id, DateTime date, Employee employee)
+        public void CreateTravelCompensation(int id, DateTime date, Employee employee)
         {
             Compensations.Add(new TravelCompensation(id, date, employee));
         }
 
-        private void CreateDrivingCompensation(int id, DateTime date, Employee employee)
+        public void CreateDrivingCompensation(int id, DateTime date, Employee employee)
         {
             Compensations.Add(new DrivingCompensation(id, date, employee));
         }
