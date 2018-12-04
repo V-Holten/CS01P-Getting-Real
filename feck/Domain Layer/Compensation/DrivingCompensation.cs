@@ -20,11 +20,11 @@ namespace Domain_Layer.Compensation
             DrivingExpenses.Add(new DrivingExpense(title, date, description, amount));
         }
 
-        public override void DeleteExpense(string title)
+        public override void DeleteExpense(int id)
         {
             foreach (DrivingExpense item in DrivingExpenses)
             {
-                if (item.Title.Equals(title))
+                if (item.Id == id)
                 {
                     DrivingExpenses.Remove(item);
                     return;
