@@ -8,9 +8,10 @@ namespace Domain_Layer.Expense
 {
     public abstract class Expense
     {
-        private DateTime Date;
-        private int Amount;
-        private string Title;
-        private string Description;
+        public int Id;
+        public DateTime Date;
+        public int Amount;
+        public string Title;
+        public string Description;
     }
 }
