@@ -4,9 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain_Layer.Expense
+namespace Presentation_Layer
 {
-    public class TravelExpense : Expense
+    class Program
     {
+        static void Main(string[] args)
+        {
+        }
     }
 }

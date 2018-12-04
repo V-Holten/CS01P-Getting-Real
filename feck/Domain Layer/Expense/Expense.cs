@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Domain_Layer.Expense
 {
-    abstract class Expense
+    public abstract class Expense
     {
         public DateTime Date;
         public int Amount;

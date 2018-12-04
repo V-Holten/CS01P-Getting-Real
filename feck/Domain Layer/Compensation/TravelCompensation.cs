@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Domain_Layer.Compensation
 {
-    class TravelCompensation : Compensation
+    public class TravelCompensation : Compensation
     {
         public List<TravelExpense> TravelExpense;
 
