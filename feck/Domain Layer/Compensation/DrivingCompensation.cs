@@ -11,7 +11,7 @@ namespace Domain_Layer.Compensation
     {
         public List<DrivingExpense> DrivingExpenses;
 
-        public DrivingCompensation(int cpid, DateTime date, Employee employee) : base(cpid, date, employee)
+        public DrivingCompensation(int cpid, DateTime date, Employee employee, string title) : base(cpid, date, employee, title)
         {
         }
 

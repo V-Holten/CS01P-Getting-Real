@@ -22,9 +22,11 @@ namespace SmartMenu
             Console.Clear();
             IList<Compensation> compensations = Department.GetAllCompensations();
             Console.WriteLine("Godtgørelser");
+            int i = 1;
             foreach (Compensation item in compensations)
             {
-                Console.WriteLine(item.ToString());
+               Console.WriteLine("Nr: " + i + " " + item.ToString());
+               i++;
             }
             Console.ReadKey();
         }

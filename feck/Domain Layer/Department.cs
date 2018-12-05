@@ -14,6 +14,11 @@ namespace Domain_Layer
         private Employee Boss;
         private List<Compensation.Compensation> Compensations;
 
+        public Department()
+        {
+            Compensations = new List<Compensation.Compensation>();
+        }
+
         public IList<Compensation.Compensation> GetAllCompensations()
         {
             return Compensations.AsReadOnly();            
@@ -29,14 +34,29 @@ namespace Domain_Layer
             throw new NotImplementedException();
         }
 
-        public void CreateTravelCompensation(int id, DateTime date, Employee employee)
+        public void CreateTravelCompensation(int id, DateTime date, Employee employee, string title)
         {
-            Compensations.Add(new TravelCompensation(id, date, employee));
+            Compensations.Add(new TravelCompensation(id, date, employee, title));
         }
 
-        public void CreateDrivingCompensation(int id, DateTime date, Employee employee)
+        public void CreateDrivingCompensation(int id, DateTime date, Employee employee, string title)
         {
-            Compensations.Add(new DrivingCompensation(id, date, employee));
+            Compensations.Add(new DrivingCompensation(id, date, employee, title));
+        }
+
+        // For testing
+
+        public int GetNumberOfCompensations()
+        {
+            try
+            {
+                return Compensations.Count;
+            }
+            catch (NullReferenceException)
+            {
+
+                return 0;
+            }
         }
     }
 }

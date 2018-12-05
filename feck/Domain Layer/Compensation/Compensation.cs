@@ -13,11 +13,12 @@ namespace Domain_Layer.Compensation
         public DateTime Date;
         public Employee Employee;
 
-        public Compensation(int cpid, DateTime date, Employee employee)
+        public Compensation(int cpid, DateTime date, Employee employee, string title)
         {
             Id = cpid;
             Date = date;
             Employee = employee;
+            Title = title;
         }
 
         public override string ToString()

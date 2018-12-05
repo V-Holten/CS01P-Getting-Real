@@ -24,9 +24,9 @@ namespace Presentation_Layer
 
             binding.Add(new ShowAllCompensations(department));
 
-            binding.Add(new MenuItem("Opret rejse godtgørelse"));
+            binding.Add(new CreateTravelCompensation(department));
 
-            binding.Add(new MenuItem("Opret Kørsels godtgørelse"));
+            binding.Add(new CreateDrivingCompensation(department));
 
             SmartMenu.SmartMenu.Activate("Welcome!", binding);
         }
