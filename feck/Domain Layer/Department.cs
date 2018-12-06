@@ -10,7 +10,7 @@ namespace Domain_Layer
     public class Department
     {
         private int Id;
-        private string Title;
+        public string Title { get; private set; }
         private Employee Boss;
         private List<Compensation.Compensation> Compensations;
 

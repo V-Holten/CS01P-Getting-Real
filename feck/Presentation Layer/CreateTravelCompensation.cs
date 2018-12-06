@@ -23,6 +23,7 @@ namespace Presentation_Layer
             Console.WriteLine("Angiv en titlen på den rejse godtgørelsen, du ønsker at oprette");
             Department.CreateTravelCompensation(Department.GetNumberOfCompensations(), DateTime.Now, new Employee(), Console.ReadLine());
             Console.WriteLine("Rejse godtgørelsen er blevet oprettet");
+            Console.ReadKey();
         }
 
         public string ToSmartMenu()

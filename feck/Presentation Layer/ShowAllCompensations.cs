@@ -1,12 +1,14 @@
 ﻿using Domain_Layer;
 using Domain_Layer.Compensation;
+using Presentation_Layer;
+using SmartMenu;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SmartMenu
+namespace Presentation_Layer
 {
     class ShowAllCompensations : IMenuItem
     {
@@ -19,16 +21,16 @@ namespace SmartMenu
 
         public void Activate()
         {
-            Console.Clear();
             IList<Compensation> compensations = Department.GetAllCompensations();
-            Console.WriteLine("Godtgørelser");
-            int i = 1;
-            foreach (Compensation item in compensations)
+
+            Binding binding = new Binding();
+
+            foreach (Compensation compensation in compensations)
             {
-               Console.WriteLine("Nr: " + i + " " + item.ToString());
-               i++;
+                binding.Add(new ShowCompensation(compensation));
             }
-            Console.ReadKey();
+
+            SmartMenu.SmartMenu.Activate(Department.Title, binding);
         }
 
         public string ToSmartMenu()

@@ -8,7 +8,7 @@ namespace SmartMenu
 {
     public class SmartMenu
     {
-        public static void Activate(string Title, IBinding binding)
+        public static void Activate(string Title, IBinding binding, string Description = "")
         {
             List<IMenuItem> menuItems = binding.GetAllMenuItems();
 
@@ -16,13 +16,24 @@ namespace SmartMenu
             while (!exit)
             {
                 Console.Clear();
-                Console.WriteLine("################");
-                Console.WriteLine(Title);
-                Console.WriteLine("################");
+
+                if (Title != null && Title != string.Empty)
+                {
+                    ConsoleSpace();
+                    Console.WriteLine(Title);
+                }
+
+                ConsoleSpace();
 
                 for (int i = 0; i < menuItems.Count; i++)
                 {
                     Console.WriteLine((i + 1) + " -> " + menuItems[i].ToSmartMenu());
+                }
+
+                if (Description != null && Description != string.Empty)
+                {
+                    ConsoleSpace();
+                    Console.WriteLine(Description);
                 }
 
                 string input = Console.ReadLine();
@@ -39,6 +50,24 @@ namespace SmartMenu
                     }
                 }
             }
+        }
+
+        private static void ConsoleSpace()
+        {
+            Console.WriteLine("----------------");
+        }
+
+        public static string RequestString(string request)
+        {
+            string requested = string.Empty;
+            do
+            {
+                Console.Clear();
+                Console.WriteLine(request);
+                requested = Console.ReadLine();
+            } while (requested == "");
+
+            return requested;
         }
     }
 }

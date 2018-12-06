@@ -23,6 +23,7 @@ namespace Presentation_Layer
             Console.WriteLine("Angiv en titlen på den kørsels godtgørelsen, du ønsker at oprette");
             Department.CreateDrivingCompensation(Department.GetNumberOfCompensations(), DateTime.Now, new Employee(), Console.ReadLine());
             Console.WriteLine("Kørsels godtgørlse er blevet oprettet");
+            Console.ReadKey();
         }
 
         public string ToSmartMenu()
