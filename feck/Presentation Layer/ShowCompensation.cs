@@ -17,11 +17,12 @@ namespace Presentation_Layer
             Compensation = compensation;
         }
 
-        public void Activate()
+        public bool Activate()
         {
-            Console.Clear();
-            Console.WriteLine("Du har valgt " + Compensation.Title);
-            Console.ReadKey();
+            //Binding binding = new Binding();
+
+            //SmartMenu.SmartMenu.Activate(Compensation.Title);
+            return false;
         }
 
         public string ToSmartMenu()

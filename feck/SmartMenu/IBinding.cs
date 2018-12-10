@@ -8,7 +8,7 @@ namespace SmartMenu
 {
     public interface IBinding
     {
-        void Call(IMenuItem menuItem);
+        bool Call(IMenuItem menuItem);
 
         List<IMenuItem> GetAllMenuItems();
     }

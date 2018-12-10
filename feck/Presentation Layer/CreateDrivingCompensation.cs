@@ -17,13 +17,14 @@ namespace Presentation_Layer
             Department = department;
         }
 
-        public void Activate()
+        public bool Activate()
         {
             Console.Clear();
             Console.WriteLine("Angiv en titlen på den kørsels godtgørelsen, du ønsker at oprette");
             Department.CreateDrivingCompensation(Department.GetNumberOfCompensations(), DateTime.Now, new Employee(), Console.ReadLine());
             Console.WriteLine("Kørsels godtgørlse er blevet oprettet");
             Console.ReadKey();
+            return false;
         }
 
         public string ToSmartMenu()

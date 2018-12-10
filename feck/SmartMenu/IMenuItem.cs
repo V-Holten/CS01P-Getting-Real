@@ -10,6 +10,6 @@ namespace SmartMenu
     {
         string ToSmartMenu();
 
-        void Activate();
+        bool Activate();
     }
 }

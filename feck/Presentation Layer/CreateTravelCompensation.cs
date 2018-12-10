@@ -17,13 +17,15 @@ namespace Presentation_Layer
             Department = department;
         }
 
-        public void Activate()
+        public bool Activate()
         {
             Console.Clear();
             Console.WriteLine("Angiv en titlen på den rejse godtgørelsen, du ønsker at oprette");
             Department.CreateTravelCompensation(Department.GetNumberOfCompensations(), DateTime.Now, new Employee(), Console.ReadLine());
             Console.WriteLine("Rejse godtgørelsen er blevet oprettet");
             Console.ReadKey();
+
+            return false;
         }
 
         public string ToSmartMenu()

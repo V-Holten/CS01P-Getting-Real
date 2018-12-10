@@ -19,7 +19,7 @@ namespace Presentation_Layer
             Department = department;
         }
 
-        public void Activate()
+        public bool Activate()
         {
             IList<Compensation> compensations = Department.GetAllCompensations();
 
@@ -31,6 +31,8 @@ namespace Presentation_Layer
             }
 
             SmartMenu.SmartMenu.Activate("Alle godtgørelser", binding, "Tilbage");
+
+            return false;
         }
 
         public string ToSmartMenu()

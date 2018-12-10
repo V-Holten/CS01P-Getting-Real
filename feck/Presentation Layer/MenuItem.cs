@@ -16,7 +16,7 @@ namespace SmartMenu
             Title = title;
         }
 
-        public void Activate()
+        public bool Activate()
         {
             throw new NotImplementedException();
         }

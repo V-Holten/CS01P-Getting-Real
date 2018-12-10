@@ -50,7 +50,7 @@ namespace SmartMenu
                     }
                     else if (inputInt > 0 && inputInt <= menuItems.Count)
                     {
-                        binding.Call(menuItems[inputInt - 1]);
+                        exit = binding.Call(menuItems[inputInt - 1]);
                     }
                 }
             }

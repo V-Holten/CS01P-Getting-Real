@@ -11,9 +11,9 @@ namespace Presentation_Layer
     {
         private List<IMenuItem> MenuItems = new List<IMenuItem>();
 
-        public void Call(IMenuItem menuItem)
+        public bool Call(IMenuItem menuItem)
         {
-            menuItem.Activate();
+            return menuItem.Activate();
         }
 
         public List<IMenuItem> GetAllMenuItems()
