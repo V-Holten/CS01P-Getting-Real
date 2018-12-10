@@ -28,7 +28,7 @@ namespace Presentation_Layer
 
             binding.Add(new CreateDrivingCompensation(department));
 
-            SmartMenu.SmartMenu.Activate("Velkommen!", binding);
+            SmartMenu.SmartMenu.Activate("Velkommen!", binding, "Luk programmet");
         }
     }
 }

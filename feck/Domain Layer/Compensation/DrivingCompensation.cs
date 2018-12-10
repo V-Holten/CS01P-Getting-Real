@@ -17,18 +17,19 @@ namespace Domain_Layer.Compensation
 
         public override void CreateExpense(string title, DateTime date, string description, int amount)
         {
-            DrivingExpenses.Add(new DrivingExpense(title, date, description, amount));
+            DrivingExpenses.Add(new DrivingExpense(title, description));
         }
 
         public override void DeleteExpense(int id)
         {
             foreach (DrivingExpense item in DrivingExpenses)
             {
-                if (item.Id == id)
-                {
-                    DrivingExpenses.Remove(item);
-                    return;
-                }
+                throw new NotImplementedException();
+                //if (item.Id == id)
+                //{
+                //    DrivingExpenses.Remove(item);
+                //    return;
+                //}
             }
         }
     }

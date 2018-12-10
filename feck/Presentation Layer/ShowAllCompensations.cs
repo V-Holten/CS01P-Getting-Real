@@ -30,7 +30,7 @@ namespace Presentation_Layer
                 binding.Add(new ShowCompensation(compensation));
             }
 
-            SmartMenu.SmartMenu.Activate(Department.Title, binding);
+            SmartMenu.SmartMenu.Activate("Alle godtgørelser", binding, "Tilbage");
         }
 
         public string ToSmartMenu()

@@ -8,7 +8,7 @@ namespace SmartMenu
 {
     public class SmartMenu
     {
-        public static void Activate(string Title, IBinding binding, string Description = "")
+        public static void Activate(string Title, IBinding binding, string exitDescription, string Description = "")
         {
             List<IMenuItem> menuItems = binding.GetAllMenuItems();
 
@@ -27,7 +27,7 @@ namespace SmartMenu
 
                 for (int i = 0; i < menuItems.Count; i++)
                 {
-                    Console.WriteLine((i + 1) + " -> " + menuItems[i].ToSmartMenu());
+                    Console.WriteLine(i + 1 + " -> " + menuItems[i].ToSmartMenu());
                 }
 
                 if (Description != null && Description != string.Empty)
@@ -36,6 +36,10 @@ namespace SmartMenu
                     Console.WriteLine(Description);
                 }
 
+                ConsoleSpace();
+                Console.WriteLine("0 -> " + exitDescription);
+                ConsoleSpace();
+                Console.Write("-> ");
                 string input = Console.ReadLine();
 
                 if (int.TryParse(input, out int inputInt))

@@ -12,12 +12,7 @@ namespace Domain_Layer
         private int Id;
         public string Title { get; private set; }
         private Employee Boss;
-        private List<Compensation.Compensation> Compensations;
-
-        public Department()
-        {
-            Compensations = new List<Compensation.Compensation>();
-        }
+        private List<Compensation.Compensation> Compensations = new List<Compensation.Compensation>();
 
         public IList<Compensation.Compensation> GetAllCompensations()
         {
