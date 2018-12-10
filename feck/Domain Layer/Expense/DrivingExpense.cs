@@ -18,12 +18,15 @@ namespace Domain_Layer.Expense
 
         public int Distance { get; set; }
 
-        public double Rate { get; set; }
+        public double Rate { get; set; } = 3.54; 
 
-        public DrivingExpense(string title, string description)
+        public DrivingExpense(string title, string description, string arrivalDest, string departureDest, int distance)
         {
             Title = title;
             Description = description;
+            ArrivalDest = arrivalDest;
+            DepartureDest = departureDest;
+            Distance = distance;
         }
     }
 }
