@@ -1,4 +1,6 @@
 ﻿using Domain_Layer.Compensation;
+using Domain_Layer.Expense;
+using Presentation_Layer.MenuItem;
 using SmartMenuLibrary;
 using System;
 using System.Collections.Generic;
@@ -19,7 +21,17 @@ namespace Presentation_Layer
 
         public bool Activate(SmartMenu smartMenu)
         {
-            SmartMenu sm = new SmartMenu(ToString(), "Tilbage");
+            string description = string.Format(
+                "{0}",
+                Compensation.Date
+            );
+
+            SmartMenu sm = new SmartMenu(ToString(), "Tilbage", description);
+
+            foreach (Expense expense in Compensation.GetExpenses())
+            {
+                sm.Add(new ShowExpense(expense));
+            }
 
             sm.Activate();
 

@@ -26,6 +26,6 @@ namespace Presentation_Layer.MenuItem
             return true;
         }
 
-        public override string ToString() => string.Format("Send {0}", Compensation.Title);
+        public override string ToString() => string.Format("Gem {0}", Compensation.Title);
     }
 }
