@@ -1,5 +1,5 @@
 ﻿using Domain_Layer;
-using SmartMenu;
+using SmartMenuLibrary;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,15 +20,15 @@ namespace Presentation_Layer
         {
             Department department = new Department();
 
-            Binding binding = new Binding();
+            SmartMenu smartMenu = new SmartMenu("Velkommen!", "Luk programmet");
 
-            binding.Add(new ShowAllCompensations(department));
+            smartMenu.Add(new ShowAllCompensations(department));
 
-            binding.Add(new CreateTravelCompensation(department));
+            smartMenu.Add(new CreateTravelCompensation(department));
 
-            binding.Add(new CreateDrivingCompensation(department));
+            smartMenu.Add(new CreateDrivingCompensation(department));
 
-            SmartMenu.SmartMenu.Activate("Velkommen!", binding, "Luk programmet");
+            smartMenu.Activate();
         }
     }
 }

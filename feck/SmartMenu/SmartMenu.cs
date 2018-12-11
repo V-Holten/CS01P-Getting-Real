@@ -4,14 +4,44 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SmartMenu
+namespace SmartMenuLibrary
 {
     public class SmartMenu
     {
-        public static void Activate(string Title, IBinding binding, string exitDescription, string Description = "")
-        {
-            List<IMenuItem> menuItems = binding.GetAllMenuItems();
+        private string Title;
+        private string ExitDescription;
+        private string Description;
+        private List<IMenuItem> MenuItems = new List<IMenuItem>();
 
+        public SmartMenu(string title, string exitDescription, string description = "")
+        {
+            Title = title;
+            ExitDescription = exitDescription;
+            Description = description;
+        }
+
+        public bool Call(IMenuItem menuItem)
+        {
+            return menuItem.Activate(this);
+        }
+
+        public List<IMenuItem> GetAllMenuItems()
+        {
+            return MenuItems;
+        }
+
+        public void Add(IMenuItem menuItem)
+        {
+            MenuItems.Add(menuItem);
+        }
+
+        public void Remove(IMenuItem menuItem)
+        {
+            MenuItems.Remove(menuItem);
+        }
+
+        public void Activate()
+        {
             bool exit = false;
             while (!exit)
             {
@@ -23,13 +53,6 @@ namespace SmartMenu
                     Console.WriteLine(Title);
                 }
 
-                ConsoleSpace();
-
-                for (int i = 0; i < menuItems.Count; i++)
-                {
-                    Console.WriteLine(i + 1 + " -> " + menuItems[i].ToSmartMenu());
-                }
-
                 if (Description != null && Description != string.Empty)
                 {
                     ConsoleSpace();
@@ -37,7 +60,14 @@ namespace SmartMenu
                 }
 
                 ConsoleSpace();
-                Console.WriteLine("0 -> " + exitDescription);
+
+                for (int i = 0; i < MenuItems.Count; i++)
+                {
+                    Console.WriteLine(i + 1 + " -> " + MenuItems[i].ToSmartMenu());
+                }
+
+                ConsoleSpace();
+                Console.WriteLine("0 -> " + ExitDescription);
                 ConsoleSpace();
                 Console.Write("-> ");
                 string input = Console.ReadLine();
@@ -48,9 +78,9 @@ namespace SmartMenu
                     {
                         exit = true;
                     }
-                    else if (inputInt > 0 && inputInt <= menuItems.Count)
+                    else if (inputInt > 0 && inputInt <= MenuItems.Count)
                     {
-                        exit = binding.Call(menuItems[inputInt - 1]);
+                        exit = Call(MenuItems[inputInt - 1]);
                     }
                 }
             }

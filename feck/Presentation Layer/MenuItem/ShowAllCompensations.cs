@@ -1,7 +1,7 @@
 ﻿using Domain_Layer;
 using Domain_Layer.Compensation;
 using Presentation_Layer;
-using SmartMenu;
+using SmartMenuLibrary;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,18 +19,18 @@ namespace Presentation_Layer
             Department = department;
         }
 
-        public bool Activate()
+        public bool Activate(SmartMenu smartMenu)
         {
             IList<Compensation> compensations = Department.GetAllCompensations();
 
-            Binding binding = new Binding();
+            SmartMenu sm = new SmartMenu("Alle godtgørelser", "Tilbage");
 
             foreach (Compensation compensation in compensations)
             {
-                binding.Add(new ShowCompensation(compensation));
+                sm.Add(new ShowCompensation(compensation));
             }
 
-            SmartMenu.SmartMenu.Activate("Alle godtgørelser", binding, "Tilbage");
+            sm.Activate();
 
             return false;
         }

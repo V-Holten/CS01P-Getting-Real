@@ -1,5 +1,5 @@
 ﻿using Domain_Layer.Compensation;
-using SmartMenu;
+using SmartMenuLibrary;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +17,7 @@ namespace Presentation_Layer
             Compensation = compensation;
         }
 
-        public bool Activate()
+        public bool Activate(SmartMenu smartMenu)
         {
             //Binding binding = new Binding();
 

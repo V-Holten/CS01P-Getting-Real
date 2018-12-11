@@ -4,12 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SmartMenu
+namespace Persistence_Layer
 {
-    public interface IBinding
+    public class Class1
     {
-        bool Call(IMenuItem menuItem);
-
-        List<IMenuItem> GetAllMenuItems();
     }
 }

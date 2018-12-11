@@ -7,7 +7,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain Layer", "Domain Laye
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Presentation Layer", "Presentation Layer\Presentation Layer.csproj", "{A660DBD3-BED7-4DBE-A359-26B5C51D0FE1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartMenu", "SmartMenu\SmartMenu.csproj", "{A08D49AD-A5D4-46AA-9F89-F15293152901}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartMenuLibrary", "SmartMenu\SmartMenuLibrary.csproj", "{A08D49AD-A5D4-46AA-9F89-F15293152901}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Persistence Layer", "Persistence Layer\Persistence Layer.csproj", "{438FF726-2FDE-467B-8074-7C92F94B14A5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{A08D49AD-A5D4-46AA-9F89-F15293152901}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A08D49AD-A5D4-46AA-9F89-F15293152901}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A08D49AD-A5D4-46AA-9F89-F15293152901}.Release|Any CPU.Build.0 = Release|Any CPU
+		{438FF726-2FDE-467B-8074-7C92F94B14A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{438FF726-2FDE-467B-8074-7C92F94B14A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{438FF726-2FDE-467B-8074-7C92F94B14A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{438FF726-2FDE-467B-8074-7C92F94B14A5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

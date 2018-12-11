@@ -1,5 +1,5 @@
 ﻿using Domain_Layer;
-using SmartMenu;
+using SmartMenuLibrary;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +17,7 @@ namespace Presentation_Layer
             Department = department;
         }
 
-        public bool Activate()
+        public bool Activate(SmartMenu smartMenu)
         {
             Console.Clear();
             Console.WriteLine("Angiv en titlen på den kørsels godtgørelsen, du ønsker at oprette");

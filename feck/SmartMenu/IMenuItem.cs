@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SmartMenu
+namespace SmartMenuLibrary
 {
     public interface IMenuItem
     {
         string ToSmartMenu();
 
-        bool Activate();
+        bool Activate(SmartMenu smartMenu);
     }
 }
