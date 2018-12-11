@@ -63,11 +63,10 @@ namespace SmartMenuLibrary
 
                 for (int i = 0; i < MenuItems.Count; i++)
                 {
-                    Console.WriteLine(i + 1 + " -> " + MenuItems[i].ToSmartMenu());
+                    Console.WriteLine(i + 1 + " -> " + MenuItems[i]);
                 }
-
-                ConsoleSpace();
                 Console.WriteLine("0 -> " + ExitDescription);
+
                 ConsoleSpace();
                 Console.Write("-> ");
                 string input = Console.ReadLine();
@@ -83,6 +82,7 @@ namespace SmartMenuLibrary
                         exit = Call(MenuItems[inputInt - 1]);
                     }
                 }
+                Console.Clear();
             }
         }
 
@@ -103,5 +103,48 @@ namespace SmartMenuLibrary
 
             return requested;
         }
+
+        public static int RequestInt(string request)
+        {
+            string requested = string.Empty;
+            int output;
+            do
+            {
+                Console.Clear();
+                Console.WriteLine(request);
+                requested = Console.ReadLine();
+            } while (!int.TryParse(requested, out output));
+
+            return output;
+        }
+
+        public static DateTime RequestDateTime(string request)
+        {
+            string requested = string.Empty;
+            DateTime output;
+            do
+            {
+                Console.Clear();
+                Console.WriteLine(request);
+                requested = Console.ReadLine();
+            } while (!DateTime.TryParse(requested, out output));
+
+            return output;
+        }
+
+        // Forget this, there's no tryparse interface..
+        /*public static T Request<T>(string request) : Type
+        {
+            string requested = string.Empty;
+            T output;
+            do
+            {
+                Console.Clear();
+                Console.WriteLine(request);
+                requested = Console.ReadLine();
+            } while (!T.TryParse(requested, out output));
+
+            return output;
+        }*/
     }
 }

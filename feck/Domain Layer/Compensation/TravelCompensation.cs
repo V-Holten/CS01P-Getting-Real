@@ -9,8 +9,13 @@ namespace Domain_Layer.Compensation
 {
     public class TravelCompensation : Compensation
     {
-        public TravelCompensation(int id, DateTime date, Employee employee, string title) : base(id, date, employee, title)
+        public TravelCompensation(string title, DateTime date) : base(title, date)
         {
+        }
+
+        public void AddExpense(TravelExpense expense)
+        {
+            AddExpense(expense);
         }
     }
 }

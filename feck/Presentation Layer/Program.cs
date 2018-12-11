@@ -18,13 +18,11 @@ namespace Presentation_Layer
 
         internal void Run()
         {
-            Department department = new Department();
+            Department department = new Department("302");
 
-            SmartMenu smartMenu = new SmartMenu("Velkommen!", "Luk programmet");
+            SmartMenu smartMenu = new SmartMenu("Afdeling " + department.Title, "Luk programmet");
 
             smartMenu.Add(new ShowAllCompensations(department));
-
-            smartMenu.Add(new CreateTravelCompensation(department));
 
             smartMenu.Add(new CreateDrivingCompensation(department));
 

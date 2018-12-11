@@ -3,26 +3,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Domain_Layer.Expense;
 
 namespace Domain_Layer.Compensation
 {
     public abstract class Compensation
     {
-        public int Id { get; protected set; }
-        public string Title { get; protected set; }
-        public DateTime Date { get; protected set; }
-        public Employee Employee { get; protected set; }
-        protected List<Expense.Expense> Expenses = new List<Expense.Expense>();
+        private List<Expense.Expense> Expenses = new List<Expense.Expense>();
 
-        public Compensation(int id, DateTime date, Employee employee, string title)
+        protected Compensation(string title, DateTime date)
         {
-            Id = id;
-            Date = date;
-            Employee = employee;
             Title = title;
+            Date = date;
         }
+        
+        public string Title { get; private set; }
+        public DateTime Date { get; private set; }
 
-        public void AddExpense(Expense.Expense expense)
+        protected void AddExpense(Expense.Expense expense)
         {
             Expenses.Add(expense);
         }
@@ -35,6 +33,11 @@ namespace Domain_Layer.Compensation
         public IList<Expense.Expense> GetExpenses()
         {
             return Expenses.AsReadOnly();
+        }
+
+        public int CountExpenses()
+        {
+            return Expenses.Count;
         }
     }
 }

@@ -8,8 +8,13 @@ namespace Domain_Layer.Expense
 {
     public abstract class Expense
     {
-        public int Id;
-        public string Title;
-        public string Description;
+        protected Expense(string title, string description)
+        {
+            Title = title;
+            Description = description;
+        }
+
+        public string Title { get; private set; }
+        public string Description { get; private set; }
     }
 }

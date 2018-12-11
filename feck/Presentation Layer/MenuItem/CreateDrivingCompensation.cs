@@ -1,4 +1,6 @@
 ﻿using Domain_Layer;
+using Domain_Layer.Compensation;
+using Presentation_Layer.MenuItem;
 using SmartMenuLibrary;
 using System;
 using System.Collections.Generic;
@@ -19,15 +21,24 @@ namespace Presentation_Layer
 
         public bool Activate(SmartMenu smartMenu)
         {
-            Console.Clear();
-            Console.WriteLine("Angiv en titlen på den kørsels godtgørelsen, du ønsker at oprette");
-            Department.CreateDrivingCompensation(Department.GetNumberOfCompensations(), DateTime.Now, new Employee(), Console.ReadLine());
-            Console.WriteLine("Kørsels godtgørlse er blevet oprettet");
-            Console.ReadKey();
+            string title = SmartMenu.RequestString("Kørsels godtgørelse titel");
+            DrivingCompensation drivingCompensation = new DrivingCompensation(title, DateTime.Now);
+
+            SmartMenu sm = new SmartMenu(drivingCompensation.Title, "Anullér", drivingCompensation.Date.ToString());
+
+            sm.Add(new AddDrivingExpense(drivingCompensation));
+
+            sm.Add(new AddCompensation(Department, drivingCompensation));
+
+            
+            sm.Activate();
+
+
+            
             return false;
         }
 
-        public string ToSmartMenu()
+        public override string ToString()
         {
             return "Opret kørsels godtgørelse";
         }

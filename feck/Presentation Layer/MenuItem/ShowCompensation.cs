@@ -19,16 +19,13 @@ namespace Presentation_Layer
 
         public bool Activate(SmartMenu smartMenu)
         {
-            SmartMenu sm = new SmartMenu(ToSmartMenu(), "Tilbage");
+            SmartMenu sm = new SmartMenu(ToString(), "Tilbage");
 
             sm.Activate();
 
             return false;
         }
 
-        public string ToSmartMenu()
-        {
-            return Compensation.Title;
-        }
+        public override string ToString() => Compensation.Title;
     }
 }

@@ -35,7 +35,7 @@ namespace Presentation_Layer
             return false;
         }
 
-        public string ToSmartMenu()
+        public override string ToString()
         {
             return "Vis alle godtgørelser";
         }

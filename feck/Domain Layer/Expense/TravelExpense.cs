@@ -8,16 +8,13 @@ namespace Domain_Layer.Expense
 {
     public class TravelExpense : Expense
     {
-        public DateTime Date { get; set; }
-        public string Description { get; set; }
-        public double Amount { get; set; }
-
-        public TravelExpense(DateTime date, string description, double amount) 
+        public TravelExpense(string title, string description, DateTime date, double amount) : base(title, description)
         {
-        
-                Date = date;
-                Description = description;
-                Amount = amount;
-         }
+            Date = date;
+            Amount = amount;
+        }
+
+        public DateTime Date { get; private set; }
+        public double Amount { get; private set; }
     }
 }

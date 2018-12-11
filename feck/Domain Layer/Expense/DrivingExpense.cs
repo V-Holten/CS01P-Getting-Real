@@ -10,19 +10,19 @@ namespace Domain_Layer.Expense
     {
         public readonly double Rate = 3.54;
 
-        public string ArrivalDest { get; set; }
-        public string DepartureDest { get; set; }
-        public DateTime ReturnDate { get; set; }
-        public DateTime DepartureDate { get; set; }
-        public int Distance { get; set; }
-
-        public DrivingExpense(string title, string description, string arrivalDest, string departureDest, int distance)
+        public DrivingExpense(string title, string description, string departureDestination, DateTime departureDate, string arrivalDestination, DateTime arrivalDate, int distance) : base(title, description)
         {
-            Title = title;
-            Description = description;
-            ArrivalDest = arrivalDest;
-            DepartureDest = departureDest;
+            DepartureDestination = departureDestination;
+            DepartureDate = departureDate;
+            ArrivalDestination = arrivalDestination;
+            ArrivalDate = arrivalDate;
             Distance = distance;
         }
+
+        public string DepartureDestination { get; private set; }
+        public DateTime DepartureDate { get; private set; }
+        public string ArrivalDestination { get; private set; }
+        public DateTime ArrivalDate { get; private set; }
+        public int Distance { get; private set; }
     }
 }

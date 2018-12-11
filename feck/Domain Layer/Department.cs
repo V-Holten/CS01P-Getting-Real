@@ -9,49 +9,28 @@ namespace Domain_Layer
 {
     public class Department
     {
-        private int Id;
-        public string Title { get; private set; }
-        private Employee Boss;
         private List<Compensation.Compensation> Compensations = new List<Compensation.Compensation>();
+
+        public Department(string title)
+        {
+            Title = title;
+        }
+
+        public string Title { get; private set; }
+
+        public void AddCompensation(Compensation.Compensation compensation)
+        {
+            Compensations.Add(compensation);
+        }
+
+        public void RemoveCompensation(Compensation.Compensation compensation)
+        {
+            Compensations.Remove(compensation);
+        }
 
         public IList<Compensation.Compensation> GetAllCompensations()
         {
-            return Compensations.AsReadOnly();            
-        }
-
-        public void CreateExpense(int stId, string description, int amount)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void DeleteExpense(int exId, int stId)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void CreateTravelCompensation(int id, DateTime date, Employee employee, string title)
-        {
-            Compensations.Add(new TravelCompensation(id, date, employee, title));
-        }
-
-        public void CreateDrivingCompensation(int id, DateTime date, Employee employee, string title)
-        {
-            Compensations.Add(new DrivingCompensation(id, date, employee, title));
-        }
-
-        // For testing
-
-        public int GetNumberOfCompensations()
-        {
-            try
-            {
-                return Compensations.Count;
-            }
-            catch (NullReferenceException)
-            {
-
-                return 0;
-            }
+            return Compensations.AsReadOnly();
         }
     }
 }
