@@ -9,20 +9,8 @@ namespace Domain_Layer.Compensation
 {
     public class TravelCompensation : Compensation
     {
-        public List<TravelExpense> TravelExpense;
-
-        public TravelCompensation(int cpid, DateTime date, Employee employee, string title) : base(cpid, date, employee, title)
+        public TravelCompensation(int id, DateTime date, Employee employee, string title) : base(id, date, employee, title)
         {
-        }
-
-        public override void CreateExpense(string title, DateTime date, string Description, int amount)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override void DeleteExpense(int id)
-        {
-            throw new NotImplementedException();
         }
     }
 }

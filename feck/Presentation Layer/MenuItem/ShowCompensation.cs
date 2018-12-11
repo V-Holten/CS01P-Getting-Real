@@ -19,9 +19,10 @@ namespace Presentation_Layer
 
         public bool Activate(SmartMenu smartMenu)
         {
-            //Binding binding = new Binding();
+            SmartMenu sm = new SmartMenu(ToSmartMenu(), "Tilbage");
 
-            //SmartMenu.SmartMenu.Activate(Compensation.Title);
+            sm.Activate();
+
             return false;
         }
 

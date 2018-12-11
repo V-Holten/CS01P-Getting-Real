@@ -8,27 +8,33 @@ namespace Domain_Layer.Compensation
 {
     public abstract class Compensation
     {
-        public int Id;
-        public string Title;
-        public DateTime Date;
-        public Employee Employee;
+        public int Id { get; protected set; }
+        public string Title { get; protected set; }
+        public DateTime Date { get; protected set; }
+        public Employee Employee { get; protected set; }
+        protected List<Expense.Expense> Expenses = new List<Expense.Expense>();
 
-        public Compensation(int cpid, DateTime date, Employee employee, string title)
+        public Compensation(int id, DateTime date, Employee employee, string title)
         {
-            Id = cpid;
+            Id = id;
             Date = date;
             Employee = employee;
             Title = title;
         }
 
-        public override string ToString()
+        public void AddExpense(Expense.Expense expense)
         {
-            return "Titel: " + Title + " Dato: " + Date;
+            Expenses.Add(expense);
         }
 
-        public abstract void CreateExpense(string title, DateTime date, string description, int amount);
+        public void RemoveExpense(Expense.Expense expense)
+        {
+            Expenses.Remove(expense);
+        }
 
-        public abstract void DeleteExpense(int id);
-
+        public IList<Expense.Expense> GetExpenses()
+        {
+            return Expenses.AsReadOnly();
+        }
     }
 }
