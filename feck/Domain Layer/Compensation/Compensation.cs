@@ -17,7 +17,6 @@ namespace Domain_Layer.Compensation
         }
         
         public string Title { get; private set; }
-        public DateTime Date { get; private set; }
 
         protected void AddExpense(Expense.Expense expense)
         {
