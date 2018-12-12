@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -131,20 +132,5 @@ namespace SmartMenuLibrary
 
             return output;
         }
-
-        // Forget this, there's no tryparse interface..
-        /*public static T Request<T>(string request) : Type
-        {
-            string requested = string.Empty;
-            T output;
-            do
-            {
-                Console.Clear();
-                Console.WriteLine(request);
-                requested = Console.ReadLine();
-            } while (!T.TryParse(requested, out output));
-
-            return output;
-        }*/
     }
 }
