@@ -9,12 +9,11 @@ namespace Domain_Layer.Compensation
 {
     public abstract class Compensation
     {
-        private List<Expense.Expense> Expenses = new List<Expense.Expense>();
+        protected List<Expense.Expense> Expenses = new List<Expense.Expense>();
 
-        protected Compensation(string title, DateTime date)
+        protected Compensation(string title)
         {
             Title = title;
-            Date = date;
         }
         
         public string Title { get; private set; }

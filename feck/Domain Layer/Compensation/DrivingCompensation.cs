@@ -9,7 +9,7 @@ namespace Domain_Layer.Compensation
 {
     public class DrivingCompensation : Compensation
     {
-        public DrivingCompensation(string title, DateTime date) : base(title, date)
+        public DrivingCompensation(string title) : base(title)
         {
         }
 
