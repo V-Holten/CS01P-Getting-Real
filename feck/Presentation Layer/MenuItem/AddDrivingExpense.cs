@@ -20,13 +20,13 @@ namespace Presentation_Layer.MenuItem
 
         public bool Activate(SmartMenu smartMenu)
         {
-            string title =  SmartMenu.RequestString("Titel på bekostningen");
-            string description = SmartMenu.RequestString("Beskrivelse på bekostningen");
-            string departureDestination = SmartMenu.RequestString("Hvor kørte du fra?");
-            DateTime departureDate = SmartMenu.RequestDateTime(string.Format("Hvornår kørte du fra {0}?", departureDestination));
-            string arrivalDestination = SmartMenu.RequestString("Hvor kørte du til?");
-            DateTime arrivalDate = SmartMenu.RequestDateTime(string.Format("Hvornår kom du til {0}?", arrivalDestination));
-            int distance = SmartMenu.RequestInt("Hvor mange kilometer (i hele tal)?");
+            string title =  Request.String("Titel på bekostningen");
+            string description = Request.String("Beskrivelse på bekostningen");
+            string departureDestination = Request.String("Hvor kørte du fra?");
+            DateTime departureDate = Request.DateTime(string.Format("Hvornår kørte du fra {0}?", departureDestination));
+            string arrivalDestination = Request.String("Hvor kørte du til?");
+            DateTime arrivalDate = Request.DateTime(string.Format("Hvornår kom du til {0}?", arrivalDestination));
+            int distance = Request.Int("Hvor mange kilometer (i hele tal)?");
 
             DrivingExpense drivingExpense = new DrivingExpense(title, description, departureDestination, departureDate, arrivalDestination, arrivalDate, distance);
             DrivingCompensation.AddExpense(drivingExpense);

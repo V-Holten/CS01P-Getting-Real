@@ -21,12 +21,7 @@ namespace Presentation_Layer
 
         public bool Activate(SmartMenu smartMenu)
         {
-            string description = string.Format(
-                "{0}",
-                Compensation.Date
-            );
-
-            SmartMenu sm = new SmartMenu(ToString(), "Tilbage", description);
+            SmartMenu sm = new SmartMenu(ToString(), "Tilbage");
 
             foreach (Expense expense in Compensation.GetExpenses())
             {

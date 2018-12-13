@@ -21,19 +21,16 @@ namespace Presentation_Layer
 
         public bool Activate(SmartMenu smartMenu)
         {
-            string title = SmartMenu.RequestString("Kørsels godtgørelse titel");
+            string title = Request.String("Kørsels godtgørelse titel");
             DrivingCompensation drivingCompensation = new DrivingCompensation(title);
 
             SmartMenu sm = new SmartMenu(drivingCompensation.Title, "Anullér");
 
             sm.Add(new AddDrivingExpense(drivingCompensation));
 
-            sm.Add(new AddCompensation(Department, drivingCompensation));
-
+            sm.Add(new AddCompensationToDepartment(Department, drivingCompensation));
             
             sm.Activate();
-
-
             
             return false;
         }

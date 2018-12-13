@@ -23,7 +23,7 @@ namespace Domain_Layer.Compensation
 
         public void AddExpense(TravelExpense expense)
         {
-            AddExpense(expense);
+            AddExpense(expense as Expense.Expense);
         }
 
         public int TimeSpent()

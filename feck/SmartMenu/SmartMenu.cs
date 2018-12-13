@@ -91,46 +91,5 @@ namespace SmartMenuLibrary
         {
             Console.WriteLine("----------------");
         }
-
-        public static string RequestString(string request)
-        {
-            string requested = string.Empty;
-            do
-            {
-                Console.Clear();
-                Console.WriteLine(request);
-                requested = Console.ReadLine();
-            } while (requested == "");
-
-            return requested;
-        }
-
-        public static int RequestInt(string request)
-        {
-            string requested = string.Empty;
-            int output;
-            do
-            {
-                Console.Clear();
-                Console.WriteLine(request);
-                requested = Console.ReadLine();
-            } while (!int.TryParse(requested, out output));
-
-            return output;
-        }
-
-        public static DateTime RequestDateTime(string request)
-        {
-            string requested = string.Empty;
-            DateTime output;
-            do
-            {
-                Console.Clear();
-                Console.WriteLine(request);
-                requested = Console.ReadLine();
-            } while (!DateTime.TryParse(requested, out output));
-
-            return output;
-        }
     }
 }

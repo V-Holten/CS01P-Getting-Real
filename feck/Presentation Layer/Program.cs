@@ -1,4 +1,5 @@
 ﻿using Domain_Layer;
+using Domain_Layer.Expense;
 using SmartMenuLibrary;
 using System;
 using System.Collections.Generic;
@@ -25,6 +26,8 @@ namespace Presentation_Layer
             smartMenu.Add(new ShowAllCompensations(department));
 
             smartMenu.Add(new CreateDrivingCompensation(department));
+
+            smartMenu.Add(new CreateTravel(department));
 
             smartMenu.Activate();
         }

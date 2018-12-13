@@ -9,12 +9,12 @@ using System.Threading.Tasks;
 
 namespace Presentation_Layer.MenuItem
 {
-    class AddCompensation : IMenuItem
+    class AddCompensationToDepartment : IMenuItem
     {
         private Department Department;
         private Compensation Compensation;
 
-        public AddCompensation(Department department, Compensation compensation)
+        public AddCompensationToDepartment(Department department, Compensation compensation)
         {
             Department = department;
             Compensation = compensation;
