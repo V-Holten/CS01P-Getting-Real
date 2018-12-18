@@ -10,9 +10,9 @@ namespace Presentation_Layer.MenuItem
 {
     class ShowExpense : IMenuItem
     {
-        private Expense Expense;
+        private Appendix Expense;
 
-        public ShowExpense(Expense expense)
+        public ShowExpense(Appendix expense)
         {
             Expense = expense;
         }
@@ -20,24 +20,30 @@ namespace Presentation_Layer.MenuItem
         public bool Activate(SmartMenu smartMenu)
         {
             string description;
-            if (Expense is DrivingExpense)
+            if (Expense is Trip)
             {
-                DrivingExpense drivingExpense = Expense as DrivingExpense;
+                Trip trip = Expense as Trip;
                 description = string.Format(
                     "{0}\n{1}\n{2}\n{3}\n{4}\n{5}",
-                    drivingExpense.Description,
-                    drivingExpense.DepartureDestination,
-                    drivingExpense.DepartureDate,
-                    drivingExpense.ArrivalDestination,
-                    drivingExpense.ArrivalDate,
-                    drivingExpense.Distance
+                    trip.Description,
+                    trip.DepartureDestination,
+                    trip.DepartureDate,
+                    trip.ArrivalDestination,
+                    trip.ArrivalDate,
+                    trip.Distance
                 );
             }
             else
             {
+                Expenditure trip = Expense as Expenditure;
                 description = string.Format(
-                    "{0}",
-                    Expense.Description
+                    "{0}\n{1}\n{2}\n{3}\n{4}\n{5}",
+                    trip.Title,
+                    trip.Description,
+                    trip.Date,
+                    trip.Amount,
+                    trip.ExpenseType,
+                    trip.Cash
                 );
             }
 

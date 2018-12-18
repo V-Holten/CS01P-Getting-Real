@@ -22,7 +22,7 @@ namespace Presentation_Layer
         public bool Activate(SmartMenu smartMenu)
         {
             string title = Request.String("Kørsels godtgørelse titel");
-            DrivingCompensation drivingCompensation = new DrivingCompensation(title);
+            Driving drivingCompensation = new Driving(title);
 
             SmartMenu sm = new SmartMenu(drivingCompensation.Title, "Anullér");
 

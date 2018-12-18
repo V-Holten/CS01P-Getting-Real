@@ -9,7 +9,7 @@ namespace Domain_Layer.Compensation
 {
     public abstract class Compensation
     {
-        protected List<Expense.Expense> Expenses = new List<Expense.Expense>();
+        protected List<Expense.Appendix> Expenses = new List<Expense.Appendix>();
 
         protected Compensation(string title)
         {
@@ -18,17 +18,17 @@ namespace Domain_Layer.Compensation
         
         public string Title { get; private set; }
 
-        protected void AddExpense(Expense.Expense expense)
+        protected void AddExpense(Expense.Appendix expense)
         {
             Expenses.Add(expense);
         }
 
-        public void RemoveExpense(Expense.Expense expense)
+        public void RemoveExpense(Expense.Appendix expense)
         {
             Expenses.Remove(expense);
         }
 
-        public IList<Expense.Expense> GetExpenses()
+        public IList<Expense.Appendix> GetExpenses()
         {
             return Expenses.AsReadOnly();
         }

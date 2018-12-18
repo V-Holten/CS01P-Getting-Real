@@ -13,12 +13,6 @@ namespace Presentation_Layer
     {
         static void Main(string[] args)
         {
-            Program program = new Program();
-            program.Run();
-        }
-
-        internal void Run()
-        {
             Department department = new Department("302");
 
             SmartMenu smartMenu = new SmartMenu("Afdeling " + department.Title, "Luk programmet");

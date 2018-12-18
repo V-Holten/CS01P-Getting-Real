@@ -23,7 +23,7 @@ namespace Presentation_Layer
         {
             SmartMenu sm = new SmartMenu(ToString(), "Tilbage");
 
-            foreach (Expense expense in Compensation.GetExpenses())
+            foreach (Appendix expense in Compensation.GetExpenses())
             {
                 sm.Attach(new ShowExpense(expense));
             }

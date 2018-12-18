@@ -5,12 +5,12 @@ using SmartMenuLibrary;
 
 namespace Presentation_Layer
 {
-    internal class EditTravelExpense : IMenuItem
+    internal class EditExpenditure : IMenuItem
     {
         private Compensation Compensation;
-        private TravelExpense Expenditure;
+        private Expenditure Expenditure;
 
-        public EditTravelExpense(Compensation travel, TravelExpense expenditure)
+        public EditExpenditure(Compensation travel, Expenditure expenditure)
         {
             Compensation = travel;
             Expenditure = expenditure;

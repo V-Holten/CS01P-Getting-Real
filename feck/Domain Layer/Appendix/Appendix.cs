@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Domain_Layer.Expense
 {
-    public abstract class Expense
+    public abstract class Appendix
     {
-        protected Expense(string title, string description)
+        protected Appendix(string title, string description)
         {
             Title = title;
             Description = description;

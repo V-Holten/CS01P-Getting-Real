@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Domain_Layer.Expense
 {
-    public class TravelExpense : Expense
+    public class Expenditure : Appendix
     {
         public enum Type
         {
@@ -19,7 +19,7 @@ namespace Domain_Layer.Expense
             Bankkortgebyr = 96440
         }
 
-        public TravelExpense(string title, string description, DateTime date, double amount, Type type, bool cash) : base(title, description)
+        public Expenditure(string title, string description, DateTime date, double amount, Type type, bool cash) : base(title, description)
         {
             Date = date;
             Amount = amount;

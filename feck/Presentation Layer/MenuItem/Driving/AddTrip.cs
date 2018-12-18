@@ -11,9 +11,9 @@ namespace Presentation_Layer.MenuItem
 {
     class AddDrivingExpense : IMenuItem
     {
-        private DrivingCompensation DrivingCompensation;
+        private Driving DrivingCompensation;
 
-        public AddDrivingExpense(DrivingCompensation drivingCompensation)
+        public AddDrivingExpense(Driving drivingCompensation)
         {
             DrivingCompensation = drivingCompensation;
         }
@@ -28,10 +28,10 @@ namespace Presentation_Layer.MenuItem
             DateTime arrivalDate = Request.DateTime(string.Format("Hvornår kom du til {0}?", arrivalDestination));
             int distance = Request.Int("Hvor mange kilometer (i hele tal)?");
 
-            DrivingExpense drivingExpense = new DrivingExpense(title, description, departureDestination, departureDate, arrivalDestination, arrivalDate, distance);
+            Trip drivingExpense = new Trip(title, description, departureDestination, departureDate, arrivalDestination, arrivalDate, distance);
             DrivingCompensation.AddExpense(drivingExpense);
 
-            smartMenu.Attach(new EditDrivingExpense(DrivingCompensation, drivingExpense));
+            smartMenu.Attach(new EditTrip(DrivingCompensation, drivingExpense));
 
             return false;
         }

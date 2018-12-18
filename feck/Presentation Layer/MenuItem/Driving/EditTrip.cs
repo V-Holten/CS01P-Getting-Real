@@ -9,12 +9,12 @@ using System.Threading.Tasks;
 
 namespace Presentation_Layer.MenuItem
 {
-    class EditDrivingExpense : IMenuItem
+    class EditTrip : IMenuItem
     {
         private Compensation Compensation;
-        private DrivingExpense DrivingExpense;
+        private Trip DrivingExpense;
         
-        public EditDrivingExpense(Compensation compensation, DrivingExpense drivingExpense)
+        public EditTrip(Compensation compensation, Trip drivingExpense)
         {
             Compensation = compensation;
             DrivingExpense = drivingExpense;

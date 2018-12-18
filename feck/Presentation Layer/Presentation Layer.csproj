@@ -49,8 +49,8 @@
     <Compile Include="MenuItem\AddCompensationToDepartment.cs" />
     <Compile Include="MenuItem\Driving\AddTrip.cs" />
     <Compile Include="MenuItem\Driving\CreateDriving.cs" />
-    <Compile Include="MenuItem\EditDrivingExpense.cs" />
-    <Compile Include="MenuItem\EditTravelExpense.cs" />
+    <Compile Include="MenuItem\Driving\EditTrip.cs" />
+    <Compile Include="MenuItem\Travel\EditExpenditure.cs" />
     <Compile Include="MenuItem\RemoveExpense.cs" />
     <Compile Include="MenuItem\ShowExpense.cs" />
     <Compile Include="Program.cs" />

@@ -12,9 +12,9 @@ namespace Presentation_Layer.MenuItem
     class RemoveExpense : IMenuItem
     {
         private Compensation Compensation;
-        private Expense Expense;
+        private Appendix Expense;
 
-        public RemoveExpense(Compensation compensation, Expense expense)
+        public RemoveExpense(Compensation compensation, Appendix expense)
         {
             Compensation = compensation;
             Expense = expense;

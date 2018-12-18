@@ -7,15 +7,15 @@ using System.Threading.Tasks;
 
 namespace Domain_Layer.Compensation
 {
-    public class DrivingCompensation : Compensation
+    public class Driving : Compensation
     {
-        public DrivingCompensation(string title) : base(title)
+        public Driving(string title) : base(title)
         {
         }
 
-        public void AddExpense(DrivingExpense expense)
+        public void AddExpense(Trip expense)
         {
-            AddExpense(expense as Expense.Expense);
+            AddExpense(expense as Expense.Appendix);
         }
     }
 }

@@ -21,7 +21,7 @@ namespace Presentation_Layer
             DateTime departureDate = Request.DateTime("Hvornår tog du afsted?");
             DateTime returnDate = Request.DateTime("Hvorn år kom du hjem?");
             bool overNightStay = Request.Bool("Overnattede du under rejsen?");
-            TravelCompensation travel = new TravelCompensation(title, departureDate, returnDate, overNightStay);
+            Travel travel = new Travel(title, departureDate, returnDate, overNightStay);
 
             SmartMenu sm = new SmartMenu(travel.Title, "Anullér");
 

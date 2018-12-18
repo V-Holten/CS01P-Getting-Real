@@ -7,9 +7,9 @@ namespace Presentation_Layer
 {
     internal class AddExpenditure : IMenuItem
     {
-        private readonly TravelCompensation Travel;
+        private readonly Travel Travel;
 
-        public AddExpenditure(TravelCompensation travel)
+        public AddExpenditure(Travel travel)
         {
             Travel = travel;
         }
@@ -20,13 +20,13 @@ namespace Presentation_Layer
             string description = Request.String("Beskrivelse på udgiften");
             DateTime date = Request.DateTime("Tidspunkt");
             double amount = Request.Double(string.Format("Sum af udgiften {0}", title));
-            TravelExpense.Type type = Request.Enum<TravelExpense.Type>("Type");
+            Expenditure.Type type = Request.Enum<Expenditure.Type>("Type");
             bool cash = Request.Bool("Betalte du med kontant?");
 
-            TravelExpense expenditure = new TravelExpense(title, description, date, amount, type, cash);
+            Expenditure expenditure = new Expenditure(title, description, date, amount, type, cash);
             Travel.AddExpense(expenditure);
 
-            smartMenu.Attach(new EditTravelExpense(Travel, expenditure));
+            smartMenu.Attach(new EditExpenditure(Travel, expenditure));
 
             return false;
         }

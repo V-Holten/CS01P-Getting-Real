@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Persistence_Layer
+namespace Persistence_Layer.Appendices
 {
-    public class Class1
+    public class Trip : Appendix
     {
     }
 }
