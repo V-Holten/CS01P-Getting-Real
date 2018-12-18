@@ -8,6 +8,10 @@ namespace Domain_Layer.Expense
 {
     public class Expenditure : Appendix
     {
+        public readonly Type ExpenseType;
+        public readonly bool Cash;
+        public readonly DateTime Date;
+        public readonly double Amount;
         public enum Type
         {
             Messeomkostninger = 54080,
@@ -26,11 +30,5 @@ namespace Domain_Layer.Expense
             ExpenseType = type;
             Cash = cash;
         }
-
-
-        public Type ExpenseType { get; set; }
-        public bool Cash { get; set; }
-        public DateTime Date { get; private set; }
-        public double Amount { get; private set; }
     }
 }
