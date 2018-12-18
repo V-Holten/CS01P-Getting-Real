@@ -47,8 +47,8 @@
     <Compile Include="MenuItem\Travel\AddExpenditure.cs" />
     <Compile Include="MenuItem\Travel\CreateTravel.cs" />
     <Compile Include="MenuItem\AddCompensationToDepartment.cs" />
-    <Compile Include="MenuItem\AddDrivingExpense.cs" />
-    <Compile Include="MenuItem\CreateDrivingCompensation.cs" />
+    <Compile Include="MenuItem\Driving\AddTrip.cs" />
+    <Compile Include="MenuItem\Driving\CreateDriving.cs" />
     <Compile Include="MenuItem\EditDrivingExpense.cs" />
     <Compile Include="MenuItem\EditTravelExpense.cs" />
     <Compile Include="MenuItem\RemoveExpense.cs" />
@@ -71,8 +71,6 @@
       <Name>SmartMenuLibrary</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="MenuItem\Driving\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

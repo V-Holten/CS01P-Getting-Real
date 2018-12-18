@@ -25,9 +25,9 @@ namespace Presentation_Layer
 
             SmartMenu sm = new SmartMenu(travel.Title, "Anullér");
 
-            sm.Add(new AddExpenditure(travel));
+            sm.Attach(new AddExpenditure(travel));
 
-            sm.Add(new AddCompensationToDepartment(Department, travel));
+            sm.Attach(new AddCompensationToDepartment(Department, travel));
 
             sm.Activate();
 

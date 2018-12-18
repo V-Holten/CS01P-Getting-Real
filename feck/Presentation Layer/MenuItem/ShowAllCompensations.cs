@@ -27,7 +27,7 @@ namespace Presentation_Layer
 
             foreach (Compensation compensation in compensations)
             {
-                sm.Add(new ShowCompensation(compensation));
+                sm.Attach(new ShowCompensation(compensation));
             }
 
             sm.Activate();

@@ -10,11 +10,11 @@ using System.Threading.Tasks;
 
 namespace Presentation_Layer
 {
-    class CreateDrivingCompensation : IMenuItem
+    class CreateDriving : IMenuItem
     {
         private Department Department;
 
-        public CreateDrivingCompensation(Department department)
+        public CreateDriving(Department department)
         {
             Department = department;
         }
@@ -26,9 +26,9 @@ namespace Presentation_Layer
 
             SmartMenu sm = new SmartMenu(drivingCompensation.Title, "Anullér");
 
-            sm.Add(new AddDrivingExpense(drivingCompensation));
+            sm.Attach(new AddDrivingExpense(drivingCompensation));
 
-            sm.Add(new AddCompensationToDepartment(Department, drivingCompensation));
+            sm.Attach(new AddCompensationToDepartment(Department, drivingCompensation));
             
             sm.Activate();
             

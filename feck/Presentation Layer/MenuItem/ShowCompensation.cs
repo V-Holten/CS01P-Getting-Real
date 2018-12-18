@@ -25,7 +25,7 @@ namespace Presentation_Layer
 
             foreach (Expense expense in Compensation.GetExpenses())
             {
-                sm.Add(new ShowExpense(expense));
+                sm.Attach(new ShowExpense(expense));
             }
 
             sm.Activate();

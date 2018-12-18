@@ -21,22 +21,17 @@ namespace SmartMenuLibrary
             Description = description;
         }
 
-        public bool Call(IMenuItem menuItem)
-        {
-            return menuItem.Activate(this);
-        }
-
         public List<IMenuItem> GetAllMenuItems()
         {
             return MenuItems;
         }
 
-        public void Add(IMenuItem menuItem)
+        public void Attach(IMenuItem menuItem)
         {
             MenuItems.Add(menuItem);
         }
 
-        public void Remove(IMenuItem menuItem)
+        public void Detach(IMenuItem menuItem)
         {
             MenuItems.Remove(menuItem);
         }
@@ -80,16 +75,13 @@ namespace SmartMenuLibrary
                     }
                     else if (inputInt > 0 && inputInt <= MenuItems.Count)
                     {
-                        exit = Call(MenuItems[inputInt - 1]);
+                        exit = MenuItems[inputInt - 1].Activate(this);
                     }
                 }
                 Console.Clear();
             }
         }
 
-        private static void ConsoleSpace()
-        {
-            Console.WriteLine("----------------");
-        }
+        private void ConsoleSpace() => Console.WriteLine("----------------");
     }
 }

@@ -34,7 +34,7 @@ namespace Presentation_Layer.MenuItem
 
             SmartMenu sm = new SmartMenu(DrivingExpense.Title, "Tilbage", description);
 
-            sm.Add(new RemoveExpense(Compensation, DrivingExpense));
+            sm.Attach(new RemoveExpense(Compensation, DrivingExpense));
 
 
             int countExpenses = Compensation.CountExpenses();
@@ -43,7 +43,7 @@ namespace Presentation_Layer.MenuItem
 
             if (countExpenses > Compensation.CountExpenses())
             {
-                smartMenu.Remove(this);
+                smartMenu.Detach(this);
             }
 
             return false;

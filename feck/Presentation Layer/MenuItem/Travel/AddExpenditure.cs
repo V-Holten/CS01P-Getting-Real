@@ -26,7 +26,7 @@ namespace Presentation_Layer
             TravelExpense expenditure = new TravelExpense(title, description, date, amount, type, cash);
             Travel.AddExpense(expenditure);
 
-            smartMenu.Add(new EditTravelExpense(Travel, expenditure));
+            smartMenu.Attach(new EditTravelExpense(Travel, expenditure));
 
             return false;
         }

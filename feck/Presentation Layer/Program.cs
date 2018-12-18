@@ -23,11 +23,11 @@ namespace Presentation_Layer
 
             SmartMenu smartMenu = new SmartMenu("Afdeling " + department.Title, "Luk programmet");
 
-            smartMenu.Add(new ShowAllCompensations(department));
+            smartMenu.Attach(new ShowAllCompensations(department));
 
-            smartMenu.Add(new CreateDrivingCompensation(department));
+            smartMenu.Attach(new CreateDriving(department));
 
-            smartMenu.Add(new CreateTravel(department));
+            smartMenu.Attach(new CreateTravel(department));
 
             smartMenu.Activate();
         }

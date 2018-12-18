@@ -23,7 +23,7 @@ namespace Presentation_Layer.MenuItem
         public bool Activate(SmartMenu smartMenu)
         {
             Compensation.RemoveExpense(Expense);
-            smartMenu.Remove(this);
+            smartMenu.Detach(this);
             return true;
         }
 

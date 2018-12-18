@@ -31,7 +31,7 @@ namespace Presentation_Layer.MenuItem
             DrivingExpense drivingExpense = new DrivingExpense(title, description, departureDestination, departureDate, arrivalDestination, arrivalDate, distance);
             DrivingCompensation.AddExpense(drivingExpense);
 
-            smartMenu.Add(new EditDrivingExpense(DrivingCompensation, drivingExpense));
+            smartMenu.Attach(new EditDrivingExpense(DrivingCompensation, drivingExpense));
 
             return false;
         }
