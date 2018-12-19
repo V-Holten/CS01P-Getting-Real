@@ -8,5 +8,8 @@ namespace Persistence_Layer.Compensations
 {
     public class Travel : Compensation
     {
+        public Travel(int id, string title, int employee) : base(id, title, employee)
+        {
+        }
     }
 }

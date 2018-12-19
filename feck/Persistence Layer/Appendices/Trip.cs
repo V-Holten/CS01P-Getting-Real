@@ -8,5 +8,8 @@ namespace Persistence_Layer.Appendices
 {
     public class Trip : Appendix
     {
+        public Trip(int id, string title) : base(id, title)
+        {
+        }
     }
 }

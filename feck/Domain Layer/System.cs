@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Domain_Layer
 {
-    public class Login
+    public class System
     {
-        public Login(int employeeid)
+        public System(int employeeid)
         {
             Persistence_Layer.Employee.GetEmployee(employeeid);
         }
