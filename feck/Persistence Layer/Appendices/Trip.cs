@@ -8,8 +8,21 @@ namespace Persistence_Layer.Appendices
 {
     public class Trip : Appendix
     {
-        public Trip(int id, string title) : base(id, title)
+        public readonly string DepartureDestination;
+        public readonly DateTime DepartureDate;
+        public readonly string ArrivalDestination;
+        public readonly DateTime ArrivalDate;
+        public readonly int Distance;
+        public readonly int driving;
+
+        public Trip(int id, string title, string departureDestination, DateTime departureDate, string arrivalDestination, DateTime arrivalDate, int distance, int driving) : base(id, title)
         {
+            DepartureDestination = departureDestination;
+            DepartureDate = departureDate;
+            ArrivalDestination = arrivalDestination;
+            ArrivalDate = arrivalDate;
+            Distance = distance;
+            this.driving = driving;
         }
     }
 }

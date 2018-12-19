@@ -8,8 +8,11 @@ namespace Persistence_Layer.Compensations
 {
     public class Driving : Compensation
     {
-        public Driving(int id, string title, int employee) : base(id, title, employee)
+        public readonly string NumberPlate;
+
+        private Driving(int id, string title, int employee, string numberPlate) : base(id, title, employee)
         {
+            NumberPlate = numberPlate;
         }
     }
 }
