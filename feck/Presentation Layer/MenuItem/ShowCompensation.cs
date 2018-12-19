@@ -1,4 +1,5 @@
-﻿using Domain_Layer.Compensation;
+﻿using Domain_Layer;
+using Domain_Layer.Compensation;
 using Domain_Layer.Expense;
 using Presentation_Layer.MenuItem;
 using SmartMenuLibrary;
@@ -12,9 +13,9 @@ namespace Presentation_Layer
 {
     class ShowCompensation : IMenuItem
     {
-        private Compensation Compensation;
+        private CompensationAccess Compensation;
 
-        public ShowCompensation(Compensation compensation)
+        public ShowCompensation(CompensationAccess compensation)
         {
             Compensation = compensation;
         }

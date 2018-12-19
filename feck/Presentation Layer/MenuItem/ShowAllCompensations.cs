@@ -12,20 +12,20 @@ namespace Presentation_Layer
 {
     class ShowAllCompensations : IMenuItem
     {
-        private Department Department;
+        private DepartmentAccess Department;
 
-        public ShowAllCompensations(Department department)
+        public ShowAllCompensations(DepartmentAccess department)
         {
             Department = department;
         }
 
         public bool Activate(SmartMenu smartMenu)
         {
-            IList<Compensation> compensations = Department.GetAllCompensations();
+            IList<CompensationAccess> compensations = Department.GetAllCompensations();
 
             SmartMenu sm = new SmartMenu("Alle godtgørelser", "Tilbage");
 
-            foreach (Compensation compensation in compensations)
+            foreach (CompensationAccess compensation in compensations)
             {
                 sm.Attach(new ShowCompensation(compensation));
             }
