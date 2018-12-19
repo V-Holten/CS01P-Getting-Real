@@ -49,6 +49,7 @@
     <Compile Include="Appendix\Trip.cs" />
     <Compile Include="Employee.cs" />
     <Compile Include="Appendix\Appendix.cs" />
+    <Compile Include="Login.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Appendix\Expenditure.cs" />
   </ItemGroup>

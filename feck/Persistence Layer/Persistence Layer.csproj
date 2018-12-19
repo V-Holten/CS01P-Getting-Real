@@ -47,6 +47,7 @@
     <Compile Include="Compensations\Compensation.cs" />
     <Compile Include="Compensations\Driving.cs" />
     <Compile Include="Compensations\Travel.cs" />
+    <Compile Include="Entry.cs" />
     <Compile Include="Department.cs" />
     <Compile Include="Employee.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

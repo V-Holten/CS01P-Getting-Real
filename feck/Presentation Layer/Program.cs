@@ -1,5 +1,6 @@
 ﻿using Domain_Layer;
 using Domain_Layer.Expense;
+using Persistence_Layer;
 using SmartMenuLibrary;
 using System;
 using System.Collections.Generic;
@@ -13,17 +14,39 @@ namespace Presentation_Layer
     {
         static void Main(string[] args)
         {
-            Department department = new Department("302");
+            int employeeId = Request.Int("Hvad er dit medarbejder ID?");
 
-            SmartMenu smartMenu = new SmartMenu("Afdeling " + department.Title, "Luk programmet");
+            try
+            {
+                Persistence_Layer.Employee employee = Persistence_Layer.Employee.GetEmployee(employeeId);
+                Console.WriteLine(employee.Fullname);
+                try
+                {
+                    Persistence_Layer.Department department = employee.Department;
+                    Console.WriteLine(department.Id);
+                }
+                catch (EntryPointNotFoundException)
+                {
+                    Console.WriteLine("Kunne ikke finde afdelingen!");
+                }
+            }
+            catch (EntryPointNotFoundException)
+            {
+                Console.WriteLine("Kunne ikke finde data for medarbejder ID " + employeeId);
+            }
+            Console.ReadKey();
 
-            smartMenu.Attach(new ShowAllCompensations(department));
+            //Department department = new Department("302");
 
-            smartMenu.Attach(new CreateDriving(department));
+            //SmartMenu smartMenu = new SmartMenu("Afdeling " + department.Title, "Luk programmet");
 
-            smartMenu.Attach(new CreateTravel(department));
+            //smartMenu.Attach(new ShowAllCompensations(department));
 
-            smartMenu.Activate();
+            //smartMenu.Attach(new CreateDriving(department));
+
+            //smartMenu.Attach(new CreateTravel(department));
+
+            //smartMenu.Activate();
         }
     }
 }

@@ -4,12 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Persistence_Layer.Appendices
+namespace Domain_Layer
 {
-    public class Expenditure : Appendix
+    public class Login
     {
-        public Expenditure(int id, string title) : base(id, title)
+        public Login(int employeeid)
         {
+            Persistence_Layer.Employee.GetEmployee(employeeid);
         }
     }
 }
