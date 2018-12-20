@@ -38,5 +38,10 @@ namespace Domain_Layer.Compensations
         {
             throw new NotImplementedException();
         }
+
+        public void RemoveExpense(Expense expense)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
