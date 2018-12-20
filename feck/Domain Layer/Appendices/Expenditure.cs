@@ -73,7 +73,7 @@ namespace Domain_Layer.Appendices
             {
                 connection.Open();
 
-                SqlCommand command = new SqlCommand("insert_driving_compensation", connection);
+                SqlCommand command = new SqlCommand("insert_expenditure_appendix", connection);
                 command.CommandType = CommandType.StoredProcedure;
                 command.Parameters.AddWithValue("@title", Title);
                 command.Parameters.AddWithValue("@expensetype", ExpenseType);
