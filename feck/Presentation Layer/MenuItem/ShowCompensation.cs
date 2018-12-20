@@ -1,6 +1,6 @@
 ﻿using Domain_Layer;
-using Domain_Layer.Compensation;
-using Domain_Layer.Expense;
+using Domain_Layer.Appendices;
+using Domain_Layer.Compensations;
 using Presentation_Layer.MenuItem;
 using SmartMenuLibrary;
 using System;
@@ -13,9 +13,9 @@ namespace Presentation_Layer
 {
     class ShowCompensation : IMenuItem
     {
-        private CompensationAccess Compensation;
+        private Compensation Compensation;
 
-        public ShowCompensation(CompensationAccess compensation)
+        public ShowCompensation(Compensation compensation)
         {
             Compensation = compensation;
         }
@@ -24,9 +24,9 @@ namespace Presentation_Layer
         {
             SmartMenu sm = new SmartMenu(ToString(), "Tilbage");
 
-            foreach (Appendix expense in Compensation.GetExpenses())
+            foreach (Appendix appendix in Compensation.GetExpenses())
             {
-                sm.Attach(new ShowExpense(expense));
+                sm.Attach(new ShowExpense(appendix));
             }
 
             sm.Activate();

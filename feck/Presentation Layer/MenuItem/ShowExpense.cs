@@ -1,4 +1,4 @@
-﻿using Domain_Layer.Expense;
+﻿using Domain_Layer.Appendices;
 using SmartMenuLibrary;
 using System;
 using System.Collections.Generic;
@@ -25,7 +25,7 @@ namespace Presentation_Layer.MenuItem
                 Trip trip = Expense as Trip;
                 description = string.Format(
                     "{0}\n{1}\n{2}\n{3}\n{4}\n{5}",
-                    trip.Description,
+                    trip.Title,
                     trip.DepartureDestination,
                     trip.DepartureDate,
                     trip.ArrivalDestination,
@@ -37,13 +37,12 @@ namespace Presentation_Layer.MenuItem
             {
                 Expenditure trip = Expense as Expenditure;
                 description = string.Format(
-                    "{0}\n{1}\n{2}\n{3}\n{4}\n{5}",
+                    "{0}\n{1}\n{2}\n{3}\n{4}",
                     trip.Title,
-                    trip.Description,
-                    trip.Date,
-                    trip.Amount,
                     trip.ExpenseType,
-                    trip.Cash
+                    trip.Cash,
+                    trip.Date,
+                    trip.Amount
                 );
             }
 

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Persistence_Layer.Appendices
+namespace Domain_Layer.Appendices
 {
     public abstract class Appendix : Entry
     {
@@ -14,6 +14,11 @@ namespace Persistence_Layer.Appendices
         public Appendix(int id, string title)
         {
             Id = id;
+            Title = title;
+        }
+
+        public Appendix(string title)
+        {
             Title = title;
         }
     }

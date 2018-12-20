@@ -1,4 +1,4 @@
-﻿using Persistence_Layer.Compensations;
+﻿using Domain_Layer.Compensations;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -7,18 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Persistence_Layer
+namespace Domain_Layer
 {
     public class Department : Entry
     {
         public readonly int Id;
 
-        private Department(int id)
+        internal Department(int id)
         {
             Id = id;
         }
 
-        public static Department GetDepartment(int id)
+        internal static Department GetDepartment(int id)
         {
             using (SqlConnection connection = new SqlConnection(ConnectionString))
             {

@@ -1,5 +1,5 @@
 ﻿using Domain_Layer;
-using Domain_Layer.Compensation;
+using Domain_Layer.Compensations;
 using Presentation_Layer;
 using SmartMenuLibrary;
 using System;
@@ -12,20 +12,20 @@ namespace Presentation_Layer
 {
     class ShowAllCompensations : IMenuItem
     {
-        private DepartmentAccess Department;
+        private Department Department;
 
-        public ShowAllCompensations(DepartmentAccess department)
+        public ShowAllCompensations(Department department)
         {
             Department = department;
         }
 
         public bool Activate(SmartMenu smartMenu)
         {
-            IList<CompensationAccess> compensations = Department.GetAllCompensations();
+            IList<Compensation> compensations = Department.GetAllCompensations();
 
             SmartMenu sm = new SmartMenu("Alle godtgørelser", "Tilbage");
 
-            foreach (CompensationAccess compensation in compensations)
+            foreach (Compensation compensation in compensations)
             {
                 sm.Attach(new ShowCompensation(compensation));
             }

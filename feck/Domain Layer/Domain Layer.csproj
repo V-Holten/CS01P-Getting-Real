@@ -50,16 +50,9 @@
     <Compile Include="Compensations\Driving.cs" />
     <Compile Include="Compensations\Travel.cs" />
     <Compile Include="Department.cs" />
-    <Compile Include="DepartmentAccess.cs" />
     <Compile Include="Employee.cs" />
     <Compile Include="Entry.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Persistence Layer\Persistence Layer.csproj">
-      <Project>{438ff726-2fde-467b-8074-7c92f94b14a5}</Project>
-      <Name>Persistence Layer</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

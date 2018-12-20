@@ -48,6 +48,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MenuItem\ShowAllCompensations.cs" />
     <Compile Include="MenuItem\ShowCompensation.cs" />
+    <Compile Include="MenuItem\ShowExpense.cs" />
+    <Compile Include="MenuItem\RemoveExpense.cs" />
+    <Compile Include="MenuItem\Travel\CreateTravel.cs" />
+    <Compile Include="MenuItem\Travel\AddExpenditure.cs" />
+    <Compile Include="MenuItem\Travel\EditExpenditure.cs" />
+    <Compile Include="MenuItem\Driving\CreateDriving.cs" />
+    <Compile Include="MenuItem\Driving\AddTrip.cs" />
+    <Compile Include="MenuItem\Driving\EditTrip.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

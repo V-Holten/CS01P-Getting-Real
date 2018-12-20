@@ -1,5 +1,5 @@
 ﻿using Domain_Layer;
-using Domain_Layer.Compensation;
+using Domain_Layer.Compensations;
 using Presentation_Layer.MenuItem;
 using SmartMenuLibrary;
 using System;
@@ -8,11 +8,11 @@ namespace Presentation_Layer
 {
     internal class CreateTravel : IMenuItem
     {
-        private Department Department;
+        private AccessPoint accessPoint;
 
-        public CreateTravel(Department department)
+        public CreateTravel(AccessPoint accessPoint)
         {
-            Department = department;
+            this.accessPoint = accessPoint;
         }
 
         public bool Activate(SmartMenu smartMenu)
@@ -21,13 +21,13 @@ namespace Presentation_Layer
             DateTime departureDate = Request.DateTime("Hvornår tog du afsted?");
             DateTime returnDate = Request.DateTime("Hvorn år kom du hjem?");
             bool overNightStay = Request.Bool("Overnattede du under rejsen?");
-            Travel travel = new Travel(title, departureDate, returnDate, overNightStay);
+            Travel travel = new Travel(title, accessPoint.Id, departureDate, returnDate, overNightStay);
 
             SmartMenu sm = new SmartMenu(travel.Title, "Anullér");
 
             sm.Attach(new AddExpenditure(travel));
 
-            sm.Attach(new AddCompensationToDepartment(Department, travel));
+            sm.Attach(new AddCompensationToDepartment(accessPoint, travel));
 
             sm.Activate();
 

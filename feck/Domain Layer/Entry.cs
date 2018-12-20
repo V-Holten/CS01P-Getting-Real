@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Persistence_Layer
+namespace Domain_Layer
 {
     public abstract class Entry
     {

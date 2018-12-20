@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 
-namespace Persistence_Layer
+namespace Domain_Layer
 {
     public class Employee : Entry
     {

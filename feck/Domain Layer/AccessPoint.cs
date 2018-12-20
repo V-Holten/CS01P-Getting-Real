@@ -1,4 +1,4 @@
-﻿using Persistence_Layer;
+﻿using Domain_Layer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +20,8 @@ namespace Domain_Layer
             employee = Employee.GetEmployee(employeeId);
         }
 
+        public int Id => employee.Id;
         public string Fullname => employee.Fullname;
+        public Department Department => employee.Department;
     }
 }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Persistence_Layer.Appendices
+namespace Domain_Layer.Appendices
 {
     public class Expenditure : Appendix
     {

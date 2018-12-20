@@ -1,5 +1,5 @@
-﻿using Domain_Layer.Compensation;
-using Domain_Layer.Expense;
+﻿using Domain_Layer.Appendices;
+using Domain_Layer.Compensations;
 using SmartMenuLibrary;
 using System;
 using System.Collections.Generic;
@@ -12,36 +12,36 @@ namespace Presentation_Layer.MenuItem
     class EditTrip : IMenuItem
     {
         private Compensation Compensation;
-        private Trip DrivingExpense;
+        private Trip trip;
         
-        public EditTrip(Compensation compensation, Trip drivingExpense)
+        public EditTrip(Compensation compensation, Trip trip)
         {
             Compensation = compensation;
-            DrivingExpense = drivingExpense;
+            this.trip = trip;
         }
 
         public bool Activate(SmartMenu smartMenu)
         {
             string description = string.Format(
                 "{0}\n{1}\n{2}\n{3}\n{4}\n{5}",
-                DrivingExpense.Description,
-                DrivingExpense.DepartureDestination,
-                DrivingExpense.DepartureDate,
-                DrivingExpense.ArrivalDestination,
-                DrivingExpense.ArrivalDate,
-                DrivingExpense.Distance
+                trip.Title,
+                trip.DepartureDestination,
+                trip.DepartureDate,
+                trip.ArrivalDestination,
+                trip.ArrivalDate,
+                trip.Distance
             );
 
-            SmartMenu sm = new SmartMenu(DrivingExpense.Title, "Tilbage", description);
+            SmartMenu sm = new SmartMenu(trip.Title, "Tilbage", description);
 
-            sm.Attach(new RemoveExpense(Compensation, DrivingExpense));
+            sm.Attach(new RemoveExpense(Compensation, trip));
 
 
-            int countExpenses = Compensation.CountExpenses();
+            int countExpenses = Compensation.GetExpenses().Count;
 
             sm.Activate();
 
-            if (countExpenses > Compensation.CountExpenses())
+            if (countExpenses > Compensation.GetExpenses().Count)
             {
                 smartMenu.Detach(this);
             }
@@ -49,6 +49,6 @@ namespace Presentation_Layer.MenuItem
             return false;
         }
 
-        public override string ToString() => string.Format("Se {0}", DrivingExpense.Title);
+        public override string ToString() => string.Format("Se {0}", trip.Title);
     }
 }

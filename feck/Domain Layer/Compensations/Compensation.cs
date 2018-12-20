@@ -1,14 +1,15 @@
-﻿using System;
+﻿using Domain_Layer.Appendices;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Persistence_Layer.Compensations
+namespace Domain_Layer.Compensations
 {
     public abstract class Compensation : Entry
     {
-        public readonly int Id;
+        public int Id;
         public readonly string Title;
         private readonly int employee;
 
@@ -19,12 +20,23 @@ namespace Persistence_Layer.Compensations
             this.employee = employee;
         }
 
+        protected Compensation(string title, int employee)
+        {
+            Title = title;
+            this.employee = employee;
+        }
+
         public Employee Employee
         {
             get
             {
                 return Employee.GetEmployee(employee);
             }
+        }
+
+        public List<Appendix> GetExpenses()
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -33,15 +33,15 @@ namespace Presentation_Layer
                 }
             } while (accessPoint is null);
 
-            DepartmentAccess departmentAccess = new DepartmentAccess(accessPoint);
+            Department department = accessPoint.Department;
 
             SmartMenu smartMenu = new SmartMenu($"Velkommen, {accessPoint.Fullname}!", "Luk programmet");
 
-            smartMenu.Attach(new ShowAllCompensations(departmentAccess));
+            smartMenu.Attach(new ShowAllCompensations(department));
 
-            //smartMenu.Attach(new CreateDriving(departmentAccess));
+            smartMenu.Attach(new CreateDriving(accessPoint));
 
-            //smartMenu.Attach(new CreateTravel(departmentAccess));
+            smartMenu.Attach(new CreateTravel(accessPoint));
 
             smartMenu.Activate();
         }
