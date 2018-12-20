@@ -1,5 +1,5 @@
 ﻿using Domain_Layer;
-using Domain_Layer.Compensation;
+using Domain_Layer.Compensations;
 using Presentation_Layer.MenuItem;
 using SmartMenuLibrary;
 using System;
@@ -12,23 +12,24 @@ namespace Presentation_Layer
 {
     class CreateDriving : IMenuItem
     {
-        private Department Department;
+        private AccessPoint accessPoint;
 
-        public CreateDriving(Department department)
+        public CreateDriving(AccessPoint accessPoint)
         {
-            Department = department;
+            this.accessPoint = accessPoint;
         }
 
         public bool Activate(SmartMenu smartMenu)
         {
             string title = Request.String("Kørsels godtgørelse titel");
-            Driving drivingCompensation = new Driving(title);
+            string numberPlate = Request.String("Nummerplade");
+            Driving drivingCompensation = new Driving(title, accessPoint, numberPlate);
 
             SmartMenu sm = new SmartMenu(drivingCompensation.Title, "Anullér");
 
             sm.Attach(new AddDrivingExpense(drivingCompensation));
 
-            sm.Attach(new AddCompensationToDepartment(Department, drivingCompensation));
+            sm.Attach(new AddCompensationToDepartment(accessPoint.Department, drivingCompensation));
             
             sm.Activate();
             

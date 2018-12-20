@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,14 +10,42 @@ namespace Domain_Layer
 {
     public class Employee
     {
+        private static readonly string ConnectionString = "Server=EALSQL1.eal.local; Database=B_DB17_2018; User Id=B_STUDENT17; Password=B_OPENDB17;";
         public readonly int Id;
         public readonly string Fullname;
         public readonly Department Department;
 
-        public Employee(string fullname, string email, Department department, int paymentRegistationNumber, int paymentAccountNumber, string licensePlate)
+        private Employee(int id, string fullname, int department)
         {
+            Id = id;
             Fullname = fullname;
-            Department = department;
+            Department = new Department(department);
+        }
+
+        internal static Employee GetEmployeeById(int id)
+        {
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            {
+                connection.Open();
+
+                SqlCommand command = new SqlCommand("GetEmployeeById", connection);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add(new SqlParameter("@id", id));
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    reader.Read();
+                    string fullname = reader["fullname"].ToString();
+                    int department = int.Parse(reader["department"].ToString());
+                    return new Employee(id, fullname, department);
+                }
+                else
+                {
+                    throw new EntryPointNotFoundException();
+                }
+            }
         }
     }
 }

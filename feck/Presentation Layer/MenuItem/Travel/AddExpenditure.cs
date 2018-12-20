@@ -1,5 +1,5 @@
-﻿using Domain_Layer.Compensation;
-using Domain_Layer.Expense;
+﻿using Domain_Layer.Compensations;
+using Domain_Layer.Appendices;
 using SmartMenuLibrary;
 using System;
 
@@ -23,7 +23,7 @@ namespace Presentation_Layer
             Expenditure.Type type = Request.Enum<Expenditure.Type>("Type");
             bool cash = Request.Bool("Betalte du med kontant?");
 
-            Expenditure expenditure = new Expenditure(title, description, date, amount, type, cash);
+            Expenditure expenditure = new Expenditure(title, date, amount, type, cash, Travel);
             Travel.AddExpense(expenditure);
 
             smartMenu.Attach(new EditExpenditure(Travel, expenditure));

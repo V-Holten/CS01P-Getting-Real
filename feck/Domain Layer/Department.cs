@@ -1,34 +1,36 @@
-﻿using System;
+﻿using Domain_Layer.Compensations;
+using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Domain_Layer.Compensation;
 
 namespace Domain_Layer
 {
     public class Department
     {
-        private List<Compensation.Compensation> Compensations = new List<Compensation.Compensation>();
+        private List<Compensation> Compensations = new List<Compensation>();
+        public readonly int Id;
 
-        public Department(string title)
+        public Department(int id)
         {
-            Title = title;
+            Id = id;
         }
 
-        public string Title { get; private set; }
-
-        public void AddCompensation(Compensation.Compensation compensation)
+        public void AddCompensation(Compensation compensation)
         {
+            compensation.Save();
             Compensations.Add(compensation);
         }
 
-        public void RemoveCompensation(Compensation.Compensation compensation)
+        public void RemoveCompensation(Compensation compensation)
         {
             Compensations.Remove(compensation);
         }
 
-        public IList<Compensation.Compensation> GetAllCompensations()
+        public IList<Compensation> GetAllCompensations()
         {
             return Compensations.AsReadOnly();
         }

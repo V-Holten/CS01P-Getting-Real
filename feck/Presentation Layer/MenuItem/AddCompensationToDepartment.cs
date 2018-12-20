@@ -1,5 +1,5 @@
 ﻿using Domain_Layer;
-using Domain_Layer.Compensation;
+using Domain_Layer.Compensations;
 using SmartMenuLibrary;
 using System;
 using System.Collections.Generic;

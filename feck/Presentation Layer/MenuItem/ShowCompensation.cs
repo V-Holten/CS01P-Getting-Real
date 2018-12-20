@@ -1,5 +1,5 @@
-﻿using Domain_Layer.Compensation;
-using Domain_Layer.Expense;
+﻿using Domain_Layer.Compensations;
+using Domain_Layer.Appendices;
 using Presentation_Layer.MenuItem;
 using SmartMenuLibrary;
 using System;

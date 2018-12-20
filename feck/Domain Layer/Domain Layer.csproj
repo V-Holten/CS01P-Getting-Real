@@ -42,22 +42,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Compensation\Compensation.cs" />
-    <Compile Include="Compensation\Travel.cs" />
-    <Compile Include="Compensation\Driving.cs" />
+    <Compile Include="AccessPoint.cs" />
+    <Compile Include="Compensations\Compensation.cs" />
+    <Compile Include="Compensations\Travel.cs" />
+    <Compile Include="Compensations\Driving.cs" />
     <Compile Include="Department.cs" />
-    <Compile Include="Appendix\Trip.cs" />
+    <Compile Include="Appendices\Trip.cs" />
     <Compile Include="Employee.cs" />
-    <Compile Include="Appendix\Appendix.cs" />
-    <Compile Include="Login.cs" />
+    <Compile Include="Appendices\Appendix.cs" />
+    <Compile Include="ISavable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Appendix\Expenditure.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Persistence Layer\Persistence Layer.csproj">
-      <Project>{438ff726-2fde-467b-8074-7c92f94b14a5}</Project>
-      <Name>Persistence Layer</Name>
-    </ProjectReference>
+    <Compile Include="Appendices\Expenditure.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

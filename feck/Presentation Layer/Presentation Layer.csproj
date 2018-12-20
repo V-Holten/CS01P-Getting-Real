@@ -66,10 +66,6 @@
       <Project>{9abb3604-f60a-49e2-baba-f48ca21e3b40}</Project>
       <Name>Domain Layer</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Persistence Layer\Persistence Layer.csproj">
-      <Project>{438ff726-2fde-467b-8074-7c92f94b14a5}</Project>
-      <Name>Persistence Layer</Name>
-    </ProjectReference>
     <ProjectReference Include="..\SmartMenu\SmartMenuLibrary.csproj">
       <Project>{A08D49AD-A5D4-46AA-9F89-F15293152901}</Project>
       <Name>SmartMenuLibrary</Name>

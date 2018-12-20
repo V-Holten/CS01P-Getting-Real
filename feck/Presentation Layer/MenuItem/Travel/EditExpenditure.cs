@@ -1,5 +1,5 @@
-﻿using Domain_Layer.Compensation;
-using Domain_Layer.Expense;
+﻿using Domain_Layer.Compensations;
+using Domain_Layer.Appendices;
 using Presentation_Layer.MenuItem;
 using SmartMenuLibrary;
 
@@ -19,13 +19,12 @@ namespace Presentation_Layer
         public bool Activate(SmartMenu smartMenu)
         {
             string description = string.Format(
-                "{0}\n{1}\n{2}\n{3}\n{4}\n{5}",
+                "{0}\n{1}\n{2}\n{3}\n{4}",
                 Expenditure.Title,
-                Expenditure.Description,
-                Expenditure.Date,
-                Expenditure.Amount,
                 Expenditure.ExpenseType,
-                Expenditure.Cash
+                Expenditure.Cash,
+                Expenditure.Date,
+                Expenditure.Amount
             );
 
             SmartMenu sm = new SmartMenu(Expenditure.Title, "Tilbage", description);

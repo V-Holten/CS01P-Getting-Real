@@ -1,0 +1,59 @@
+﻿using Domain_Layer.Compensations;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Domain_Layer.Appendices
+{
+    public class Expenditure : Appendix
+    {
+        public readonly Type ExpenseType;
+        public readonly bool Cash;
+        public readonly DateTime Date;
+        public readonly double Amount;
+        private readonly Travel travel;
+
+        public enum Type
+        {
+            Messeomkostninger = 54080,
+            Transport = 87020,
+            Ophold = 87030,
+            Fortæring = 87040,
+            Diverse = 87050,
+            Repræsentaion = 81020,
+            Bankkortgebyr = 96440
+        }
+
+        public Expenditure(string title, DateTime date, double amount, Type type, bool cash, Travel travel) : base(title)
+        {
+            Date = date;
+            Amount = amount;
+            ExpenseType = type;
+            Cash = cash;
+            this.travel = travel;
+        }
+
+        public override void Save()
+        {
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            {
+                connection.Open();
+
+                SqlCommand command = new SqlCommand("insert_driving_compensation", connection);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@title", Title);
+                command.Parameters.AddWithValue("@expensetype", ExpenseType);
+                command.Parameters.AddWithValue("@cash", Cash);
+                command.Parameters.AddWithValue("@date", Date);
+                command.Parameters.AddWithValue("@amount", Amount);
+                command.Parameters.AddWithValue("@travel", travel.Id);
+
+                command.ExecuteNonQuery();
+            }
+        }
+    }
+}

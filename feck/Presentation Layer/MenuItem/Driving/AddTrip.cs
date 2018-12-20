@@ -1,5 +1,5 @@
-﻿using Domain_Layer.Compensation;
-using Domain_Layer.Expense;
+﻿using Domain_Layer.Compensations;
+using Domain_Layer.Appendices;
 using SmartMenuLibrary;
 using System;
 using System.Collections.Generic;
@@ -28,7 +28,7 @@ namespace Presentation_Layer.MenuItem
             DateTime arrivalDate = Request.DateTime(string.Format("Hvornår kom du til {0}?", arrivalDestination));
             int distance = Request.Int("Hvor mange kilometer (i hele tal)?");
 
-            Trip drivingExpense = new Trip(title, description, departureDestination, departureDate, arrivalDestination, arrivalDate, distance);
+            Trip drivingExpense = new Trip(title, departureDestination, departureDate, arrivalDestination, arrivalDate, distance, DrivingCompensation);
             DrivingCompensation.AddExpense(drivingExpense);
 
             smartMenu.Attach(new EditTrip(DrivingCompensation, drivingExpense));

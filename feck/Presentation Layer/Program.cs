@@ -1,9 +1,9 @@
 ﻿using Domain_Layer;
-using Domain_Layer.Expense;
-using Persistence_Layer;
+using Domain_Layer.Appendices;
 using SmartMenuLibrary;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,39 +14,37 @@ namespace Presentation_Layer
     {
         static void Main(string[] args)
         {
-            int employeeId = Request.Int("Hvad er dit medarbejder ID?");
-
-            try
+            AccessPoint accessPoint = null;
+            do
             {
-                Persistence_Layer.Employee employee = Persistence_Layer.Employee.GetEmployee(employeeId);
-                Console.WriteLine(employee.Fullname);
+                int employeeId = Request.Int("Hvad er dit medarbejder ID?");
                 try
                 {
-                    Persistence_Layer.Department department = employee.Department;
-                    Console.WriteLine(department.Id);
+                    accessPoint = new AccessPoint(employeeId);
                 }
                 catch (EntryPointNotFoundException)
                 {
-                    Console.WriteLine("Kunne ikke finde afdelingen!");
+                    Console.WriteLine("Kunne ikke finde data for medarbejder ID " + employeeId);
+                    Console.ReadKey();
                 }
-            }
-            catch (EntryPointNotFoundException)
-            {
-                Console.WriteLine("Kunne ikke finde data for medarbejder ID " + employeeId);
-            }
-            Console.ReadKey();
+                catch (SqlException e)
+                {
+                    Console.WriteLine("Noget gik galt mellem serveren & programmet: " + e);
+                    Console.ReadKey();
+                }
+            } while (accessPoint is null);
 
-            //Department department = new Department("302");
+            Department department = accessPoint.Department;
 
-            //SmartMenu smartMenu = new SmartMenu("Afdeling " + department.Title, "Luk programmet");
+            SmartMenu smartMenu = new SmartMenu("Afdeling " + department.Id, "Luk programmet");
 
-            //smartMenu.Attach(new ShowAllCompensations(department));
+            smartMenu.Attach(new ShowAllCompensations(department));
 
-            //smartMenu.Attach(new CreateDriving(department));
+            smartMenu.Attach(new CreateDriving(accessPoint));
 
-            //smartMenu.Attach(new CreateTravel(department));
+            smartMenu.Attach(new CreateTravel(accessPoint));
 
-            //smartMenu.Activate();
+            smartMenu.Activate();
         }
     }
 }
