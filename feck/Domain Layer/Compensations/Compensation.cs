@@ -13,7 +13,7 @@ namespace Domain_Layer.Compensations
     {
         protected static readonly string ConnectionString = "Server=EALSQL1.eal.local; Database=B_DB17_2018; User Id=B_STUDENT17; Password=B_OPENDB17;";
         public int Id { get; internal set; }
-        protected List<Appendix> Appendix = new List<Appendix>();
+        protected readonly List<Appendix> appendices = new List<Appendix>();
         public readonly string Title;
         internal readonly Employee Employee;
 
@@ -23,21 +23,21 @@ namespace Domain_Layer.Compensations
             Employee = employee;
         }
 
-        protected void AddExpense(Appendix expense)
+        public void AddAppendix(Appendix expense)
         {
-            Appendix.Add(expense);
+            appendices.Add(expense);
         }
 
-        public void RemoveExpense(Appendix expense)
+        public void RemoveAppendix(Appendix expense)
         {
-            Appendix.Remove(expense);
+            appendices.Remove(expense);
         }
 
-        public abstract List<Appendix> GetExpenses();
+        public abstract List<Appendix> GetAppendices();
 
-        public int CountExpenses()
+        public int CountAppendices()
         {
-            return Appendix.Count;
+            return appendices.Count;
         }
 
         public abstract void Save();

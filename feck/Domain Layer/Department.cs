@@ -11,10 +11,10 @@ namespace Domain_Layer
 {
     public class Department
     {
-        private List<Compensation> Compensations = new List<Compensation>();
+        private readonly List<Compensation> compensations = new List<Compensation>();
         public readonly int Id;
 
-        public Department(int id)
+        internal Department(int id)
         {
             Id = id;
         }
@@ -22,17 +22,17 @@ namespace Domain_Layer
         public void AddCompensation(Compensation compensation)
         {
             compensation.Save();
-            Compensations.Add(compensation);
+            compensations.Add(compensation);
         }
 
         public void RemoveCompensation(Compensation compensation)
         {
-            Compensations.Remove(compensation);
+            compensations.Remove(compensation);
         }
 
         public IList<Compensation> GetAllCompensations()
         {
-            return Compensations.AsReadOnly();
+            return compensations.AsReadOnly();
         }
     }
 }

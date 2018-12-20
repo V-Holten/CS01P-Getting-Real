@@ -23,7 +23,7 @@ namespace Presentation_Layer
             bool cash = Request.Bool("Betalte du med kontant?");
 
             Expenditure expenditure = new Expenditure(title, date, amount, type, cash, Travel);
-            Travel.AddExpense(expenditure);
+            Travel.AddAppendix(expenditure);
 
             smartMenu.Attach(new EditExpenditure(Travel, expenditure));
 

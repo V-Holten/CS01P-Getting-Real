@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace Presentation_Layer.MenuItem
 {
-    class AddDrivingExpense : IMenuItem
+    class AddTrip : IMenuItem
     {
         private Driving DrivingCompensation;
 
-        public AddDrivingExpense(Driving drivingCompensation)
+        public AddTrip(Driving drivingCompensation)
         {
             DrivingCompensation = drivingCompensation;
         }
@@ -28,7 +28,7 @@ namespace Presentation_Layer.MenuItem
             int distance = Request.Int("Hvor mange kilometer (i hele tal)?");
 
             Trip drivingExpense = new Trip(title, departureDestination, departureDate, arrivalDestination, arrivalDate, distance, DrivingCompensation);
-            DrivingCompensation.AddExpense(drivingExpense);
+            DrivingCompensation.AddAppendix(drivingExpense);
 
             smartMenu.Attach(new EditTrip(DrivingCompensation, drivingExpense));
 

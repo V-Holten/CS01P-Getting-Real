@@ -23,27 +23,12 @@ namespace Presentation_Layer.MenuItem
             if (Expense is Trip)
             {
                 Trip trip = Expense as Trip;
-                description = string.Format(
-                    "{0}\n{1}\n{2}\n{3}\n{4}\n{5}",
-                    trip.Title,
-                    trip.DepartureDestination,
-                    trip.DepartureDate,
-                    trip.ArrivalDestination,
-                    trip.ArrivalDate,
-                    trip.Distance
-                );
+                description = $"{trip.Title}\n{trip.DepartureDestination}\n{trip.DepartureDate}\n{trip.ArrivalDestination}\n{trip.ArrivalDate}\n{trip.Distance}";
             }
             else
             {
                 Expenditure trip = Expense as Expenditure;
-                description = string.Format(
-                    "{0}\n{1}\n{2}\n{3}\n{4}",
-                    trip.Title,
-                    trip.ExpenseType,
-                    trip.Cash,
-                    trip.Date,
-                    trip.Amount
-                );
+                description = $"{trip.Title}\n{trip.ExpenseType}\n{trip.Cash}\n{trip.Date}\n{trip.Amount}";
             }
 
             SmartMenu sm = new SmartMenu(ToString(), "Tilbage", description);

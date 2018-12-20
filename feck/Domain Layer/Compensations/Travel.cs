@@ -57,12 +57,12 @@ namespace Domain_Layer.Compensations
             return travels;
         }
 
-        public void AddExpense(Expenditure expense)
+        public void AddAppendix(Expenditure appendix)
         {
-            AddExpense(expense as Appendices.Appendix);
+            AddAppendix(appendix as Appendix);
         }
 
-        public override List<Appendix> GetExpenses()
+        public override List<Appendix> GetAppendices()
         {
             return Expenditure.GetExpenditureByTravel(this).ToList<Appendix>();
         }
@@ -84,7 +84,7 @@ namespace Domain_Layer.Compensations
                 
                 Id = Convert.ToInt32(command.ExecuteScalar());
             }
-            Appendix.ForEach(o => o.Save());
+            appendices.ForEach(o => o.Save());
         }
 
         public int TimeSpent()
@@ -95,7 +95,7 @@ namespace Domain_Layer.Compensations
         public double TotalReturn()
         {
             double spent = 0;
-            foreach (Expenditure item in Appendix)
+            foreach (Expenditure item in appendices)
             {
                 if (item.Cash == true)
                 {

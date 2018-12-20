@@ -18,9 +18,9 @@ namespace Domain_Layer.Compensations
             NumberPlate = numberPlate;
         }
 
-        public void AddExpense(Trip expense)
+        public void AddAppendix(Trip appendix)
         {
-            AddExpense(expense as Appendix);
+            AddAppendix(appendix as Appendix);
         }
 
         public override void Save()
@@ -37,7 +37,7 @@ namespace Domain_Layer.Compensations
 
                 Id = Convert.ToInt32(command.ExecuteScalar());
             }
-            Appendix.ForEach(o => o.Save());
+            appendices.ForEach(o => o.Save());
         }
 
         internal static List<Driving> GetDrivingByEmployee(Employee employee)
@@ -70,7 +70,7 @@ namespace Domain_Layer.Compensations
             return driving;
         }
 
-        public override List<Appendix> GetExpenses()
+        public override List<Appendix> GetAppendices()
         {
             return Trip.GetTripByDrive(this).ToList<Appendix>();
         }

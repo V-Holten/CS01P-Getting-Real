@@ -9,18 +9,18 @@ namespace Domain_Layer
 {
     public class AccessPoint
     {
-        public readonly Employee employee;
+        public readonly Employee Employee;
            
         public AccessPoint(int employeeId)
         {
-            employee = Employee.GetEmployeeById(employeeId);
+            Employee = Employee.GetEmployeeById(employeeId);
         }
 
-        public Department Department => employee.Department;
+        public Department Department => Employee.Department;
 
         public List<Compensation> GetAllCompensations()
         {
-            return employee.GetCompensations();
+            return Employee.GetCompensations();
         }
     }
 }

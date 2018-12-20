@@ -31,11 +31,11 @@ namespace Presentation_Layer
 
             sm.Attach(new RemoveExpense(Compensation, Expenditure));
             
-            int countExpenses = Compensation.CountExpenses();
+            int countExpenses = Compensation.CountAppendices();
 
             sm.Activate();
 
-            if (countExpenses > Compensation.CountExpenses())
+            if (countExpenses > Compensation.CountAppendices())
             {
                 smartMenu.Detach(this);
             }

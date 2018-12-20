@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Domain_Layer
 {
-    interface ISavable
+    public interface ISavable
     {
         void Save();
     }
