@@ -17,7 +17,6 @@ namespace Presentation_Layer
         public bool Activate(SmartMenu smartMenu)
         {
             string title = Request.String("Titel på udgiften");
-            string description = Request.String("Beskrivelse på udgiften");
             DateTime date = Request.DateTime("Tidspunkt");
             double amount = Request.Double(string.Format("Sum af udgiften {0}", title));
             Expenditure.Type type = Request.Enum<Expenditure.Type>("Type");

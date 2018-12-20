@@ -23,7 +23,7 @@ namespace Presentation_Layer
         {
             string title = Request.String("Kørsels godtgørelse titel");
             string numberPlate = Request.String("Nummerplade");
-            Driving drivingCompensation = new Driving(title, accessPoint, numberPlate);
+            Driving drivingCompensation = new Driving(title, accessPoint.employee, numberPlate);
 
             SmartMenu sm = new SmartMenu(drivingCompensation.Title, "Anullér");
 

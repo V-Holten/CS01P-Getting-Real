@@ -12,18 +12,18 @@ namespace Presentation_Layer
 {
     class ShowCompensation : IMenuItem
     {
-        private Compensation Compensation;
+        private Compensation compensation;
 
         public ShowCompensation(Compensation compensation)
         {
-            Compensation = compensation;
+            this.compensation = compensation;
         }
 
         public bool Activate(SmartMenu smartMenu)
         {
             SmartMenu sm = new SmartMenu(ToString(), "Tilbage");
 
-            foreach (Appendix expense in Compensation.GetExpenses())
+            foreach (Appendix expense in compensation.GetExpenses())
             {
                 sm.Attach(new ShowExpense(expense));
             }
@@ -33,6 +33,6 @@ namespace Presentation_Layer
             return false;
         }
 
-        public override string ToString() => Compensation.Title;
+        public override string ToString() => compensation.Title;
     }
 }

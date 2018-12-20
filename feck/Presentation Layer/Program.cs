@@ -38,7 +38,7 @@ namespace Presentation_Layer
 
             SmartMenu smartMenu = new SmartMenu("Afdeling " + department.Id, "Luk programmet");
 
-            smartMenu.Attach(new ShowAllCompensations(department));
+            smartMenu.Attach(new ShowAllCompensations(accessPoint));
 
             smartMenu.Attach(new CreateDriving(accessPoint));
 

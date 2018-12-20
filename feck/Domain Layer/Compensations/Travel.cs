@@ -16,7 +16,7 @@ namespace Domain_Layer.Compensations
         public readonly bool OverNightStay;
         public readonly double Credit;
 
-        public Travel(string title, AccessPoint accessPoint, DateTime departureDate, DateTime returnDate, bool overNightStay, double credit) : base(title, accessPoint.employee)
+        public Travel(string title, Employee employee, DateTime departureDate, DateTime returnDate, bool overNightStay, double credit) : base(title, employee)
         {
             DepartureDate = departureDate;
             ReturnDate = returnDate;
@@ -24,9 +24,47 @@ namespace Domain_Layer.Compensations
             Credit = credit;
         }
 
+        internal static List<Travel> GetTravelByEmployee(Employee employee)
+        {
+            List<Travel> travels = new List<Travel>();
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            {
+                connection.Open();
+
+                SqlCommand command = new SqlCommand("GetTravelById", connection);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add(new SqlParameter("@employee", employee.Id));
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        int id = int.Parse(reader["id"].ToString());
+                        string title = reader["title"].ToString();
+                        DateTime departureDate = DateTime.Parse(reader["departuredate"].ToString());
+                        DateTime returnDate = DateTime.Parse(reader["returndate"].ToString());
+                        bool overNightStay = bool.Parse(reader["overnightstay"].ToString());
+                        double credit = float.Parse(reader["credit"].ToString());
+
+                        Travel travel = new Travel(title, employee, departureDate, returnDate, overNightStay, credit);
+                        travel.Id = id;
+                        travels.Add(travel);
+                    }
+                }
+            }
+            return travels;
+        }
+
         public void AddExpense(Expenditure expense)
         {
             AddExpense(expense as Appendices.Appendix);
+        }
+
+        public override List<Appendix> GetExpenses()
+        {
+            return Expenditure.GetExpenditureByTravel(this).ToList<Appendix>();
         }
 
         public override void Save()
@@ -43,8 +81,8 @@ namespace Domain_Layer.Compensations
                 command.Parameters.AddWithValue("@returndate", ReturnDate);
                 command.Parameters.AddWithValue("@overnightstay", OverNightStay);
                 command.Parameters.AddWithValue("@credit", Credit);
-
-                command.ExecuteNonQuery();
+                
+                Id = Convert.ToInt32(command.ExecuteScalar());
             }
             Appendix.ForEach(o => o.Save());
         }

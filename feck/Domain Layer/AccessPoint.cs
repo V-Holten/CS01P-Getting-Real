@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Domain_Layer.Compensations;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,7 @@ namespace Domain_Layer
 {
     public class AccessPoint
     {
-        internal readonly Employee employee;
+        public readonly Employee employee;
            
         public AccessPoint(int employeeId)
         {
@@ -16,5 +17,10 @@ namespace Domain_Layer
         }
 
         public Department Department => employee.Department;
+
+        public List<Compensation> GetAllCompensations()
+        {
+            return employee.GetCompensations();
+        }
     }
 }

@@ -22,7 +22,7 @@ namespace Presentation_Layer
             DateTime returnDate = Request.DateTime("Hvorn år kom du hjem?");
             bool overNightStay = Request.Bool("Overnattede du under rejsen?");
             double credit = Request.Double("Hvor meget i kontant havde du med?");
-            Travel travel = new Travel(title, accessPoint, departureDate, returnDate, overNightStay, credit);
+            Travel travel = new Travel(title, accessPoint.employee, departureDate, returnDate, overNightStay, credit);
 
             SmartMenu sm = new SmartMenu(travel.Title, "Anullér");
 

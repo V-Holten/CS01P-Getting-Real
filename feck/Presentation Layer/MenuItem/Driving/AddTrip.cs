@@ -21,7 +21,6 @@ namespace Presentation_Layer.MenuItem
         public bool Activate(SmartMenu smartMenu)
         {
             string title =  Request.String("Titel på bekostningen");
-            string description = Request.String("Beskrivelse på bekostningen");
             string departureDestination = Request.String("Hvor kørte du fra?");
             DateTime departureDate = Request.DateTime(string.Format("Hvornår kørte du fra {0}?", departureDestination));
             string arrivalDestination = Request.String("Hvor kørte du til?");

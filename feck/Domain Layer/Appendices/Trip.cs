@@ -30,13 +30,44 @@ namespace Domain_Layer.Appendices
             this.driving = driving;
         }
 
+        internal static List<Trip> GetTripByDrive(Driving drive)
+        {
+            List<Trip> driving = new List<Trip>();
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            {
+                connection.Open();
+
+                SqlCommand command = new SqlCommand("GetTripByDriving", connection);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add(new SqlParameter("@driving", drive.Id));
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        int id = int.Parse(reader["id"].ToString());
+                        string title = reader["title"].ToString();
+                        string departureDestination = reader["departuredestination"].ToString();
+                        DateTime departureDate = DateTime.Parse(reader["departuredate"].ToString());
+                        string arrivalDestination = reader["arrivaldestination"].ToString();
+                        DateTime arrivalDate = DateTime.Parse(reader["arrivaldate"].ToString());
+                        int distance = int.Parse(reader["distance"].ToString());
+                        driving.Add(new Trip(title, departureDestination, departureDate, arrivalDestination, arrivalDate, distance, drive));
+                    }
+                }
+            }
+            return driving;
+        }
+
         public override void Save()
         {
             using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
                 connection.Open();
 
-                SqlCommand command = new SqlCommand("insert_driving_compensation", connection);
+                SqlCommand command = new SqlCommand("insert_trip_appendix", connection);
                 command.CommandType = CommandType.StoredProcedure;
                 command.Parameters.AddWithValue("@title", Title);
                 command.Parameters.AddWithValue("@departuredestination", DepartureDestination);

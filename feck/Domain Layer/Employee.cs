@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Domain_Layer.Compensations;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -20,6 +21,23 @@ namespace Domain_Layer
             Id = id;
             Fullname = fullname;
             Department = new Department(department);
+        }
+
+        public List<Compensation> GetCompensations()
+        {
+            List<Compensation> compensations = new List<Compensation>();
+
+            foreach (Travel travel in Travel.GetTravelByEmployee(this))
+            {
+                compensations.Add(travel);
+            }
+
+            foreach (Driving driving in Driving.GetDrivingByEmployee(this))
+            {
+                compensations.Add(driving);
+            }
+
+            return compensations;
         }
 
         internal static Employee GetEmployeeById(int id)

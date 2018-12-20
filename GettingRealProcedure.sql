@@ -5,7 +5,7 @@ CREATE OR ALTER PROCEDURE insert_compensation
 AS
 BEGIN
 
-	INSERT INTO VolaCompensation (title, employee) VALUES
+	INSERT INTO VolaCompensation (title, employee) OUTPUT INSERTED.ID VALUES
 	(@title, @employee);
 
 END
@@ -52,7 +52,7 @@ CREATE OR ALTER PROCEDURE insert_appendix
 AS
 BEGIN
 
-	INSERT INTO VolaAppendix(title) VALUES
+	INSERT INTO VolaAppendix(title) OUTPUT INSERTED.ID VALUES
 	(@title);
 
 END
@@ -124,27 +124,59 @@ END
 GO
 
 -- Get all Travel
-CREATE OR ALTER PROCEDURE GetAllTravel
+CREATE OR ALTER PROCEDURE GetTravelById
+	@employee	INT
 AS
 BEGIN
 
 	SELECT id, title, employee, departuredate, returndate, overnightstay, credit
 	FROM VolaTravel
 	LEFT JOIN VolaCompensation
-	ON VolaCompensation.id = VolaTravel.compensation;
+	ON VolaCompensation.id = VolaTravel.compensation
+	WHERE employee = @employee;
 
 END
 GO
 
 -- Get all Driving
-CREATE OR ALTER PROCEDURE GetAllDriving
+CREATE OR ALTER PROCEDURE GetDrivingById
+	@employee	INT
 AS
 BEGIN
 
 	SELECT id, title, employee, numberplate
 	FROM VolaDriving
 	LEFT JOIN VolaCompensation
-	ON VolaCompensation.id = VolaDriving.compensation;
+	ON VolaCompensation.id = VolaDriving.compensation
+	WHERE employee = @employee;
+
+END
+GO
+
+CREATE OR ALTER PROCEDURE GetExpenditureByTravel
+	@travel	INT
+AS
+BEGIN
+
+	SELECT id, title, expensetype, cash, [date], amount
+	FROM VolaExpenditure
+	LEFT JOIN VolaAppendix
+	ON VolaAppendix.id = VolaExpenditure.appendix
+	WHERE travel = @travel;
+
+END
+GO
+
+CREATE OR ALTER PROCEDURE GetTripByDriving
+	@driving	INT
+AS
+BEGIN
+
+	SELECT id, title, departuredestination, departuredate, arrivaldestination, arrivaldate, distance
+	FROM VolaTrip
+	LEFT JOIN VolaAppendix
+	ON VolaAppendix.id = VolaTrip.appendix
+	WHERE driving = @driving;
 
 END
 GO

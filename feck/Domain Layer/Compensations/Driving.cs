@@ -13,7 +13,7 @@ namespace Domain_Layer.Compensations
     {
         public readonly string NumberPlate;
 
-        public Driving(string title, AccessPoint accessPoint, string numberPlate) : base(title, accessPoint.employee)
+        public Driving(string title, Employee employee, string numberPlate) : base(title, employee)
         {
             NumberPlate = numberPlate;
         }
@@ -35,9 +35,44 @@ namespace Domain_Layer.Compensations
                 command.Parameters.AddWithValue("@employee", Employee.Id);
                 command.Parameters.AddWithValue("@numberplate", NumberPlate);
 
-                command.ExecuteNonQuery();
+                Id = Convert.ToInt32(command.ExecuteScalar());
             }
             Appendix.ForEach(o => o.Save());
+        }
+
+        internal static List<Driving> GetDrivingByEmployee(Employee employee)
+        {
+            List<Driving> driving = new List<Driving>();
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            {
+                connection.Open();
+
+                SqlCommand command = new SqlCommand("GetDrivingById", connection);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add(new SqlParameter("@employee", employee.Id));
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        int id = int.Parse(reader["id"].ToString());
+                        string title = reader["title"].ToString();
+                        string numberPlate = reader["numberplate"].ToString();
+
+                        Driving drive = new Driving(title, employee, numberPlate);
+                        drive.Id = id;
+                        driving.Add(drive);
+                    }
+                }
+            }
+            return driving;
+        }
+
+        public override List<Appendix> GetExpenses()
+        {
+            return Trip.GetTripByDrive(this).ToList<Appendix>();
         }
     }
 }

@@ -12,16 +12,16 @@ namespace Presentation_Layer
 {
     class ShowAllCompensations : IMenuItem
     {
-        private Department Department;
+        private AccessPoint accessPoint;
 
-        public ShowAllCompensations(Department department)
+        public ShowAllCompensations(AccessPoint accessPoint)
         {
-            Department = department;
+            this.accessPoint = accessPoint;
         }
 
         public bool Activate(SmartMenu smartMenu)
         {
-            IList<Compensation> compensations = Department.GetAllCompensations();
+            List<Compensation> compensations = accessPoint.GetAllCompensations();
 
             SmartMenu sm = new SmartMenu("Alle godtgørelser", "Tilbage");
 

@@ -33,10 +33,7 @@ namespace Domain_Layer.Compensations
             Appendix.Remove(expense);
         }
 
-        public IList<Appendix> GetExpenses()
-        {
-            return Appendix.AsReadOnly();
-        }
+        public abstract List<Appendix> GetExpenses();
 
         public int CountExpenses()
         {
