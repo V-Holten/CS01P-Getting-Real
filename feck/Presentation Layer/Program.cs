@@ -14,13 +14,12 @@ namespace Presentation_Layer
     {
         static void Main(string[] args)
         {
-            AccessPoint accessPoint = null;
             do
             {
                 int employeeId = Request.Int("Hvad er dit medarbejder ID?");
                 try
                 {
-                    accessPoint = new AccessPoint(employeeId);
+                    AccessPoint.AssignSingleton(employeeId);
                 }
                 catch (EntryPointNotFoundException)
                 {
@@ -32,17 +31,17 @@ namespace Presentation_Layer
                     Console.WriteLine("Noget gik galt mellem serveren & programmet: " + e);
                     Console.ReadKey();
                 }
-            } while (accessPoint is null);
+            } while (AccessPoint.Instance is null);
 
-            Department department = accessPoint.Department;
+            Department department = AccessPoint.Instance.Department;
 
             SmartMenu smartMenu = new SmartMenu("Afdeling " + department.Id, "Luk programmet");
 
-            smartMenu.Attach(new ShowAllCompensations(accessPoint));
+            smartMenu.Attach(new ShowAllCompensations());
 
-            smartMenu.Attach(new CreateDriving(accessPoint));
+            smartMenu.Attach(new CreateDriving());
 
-            smartMenu.Attach(new CreateTravel(accessPoint));
+            smartMenu.Attach(new CreateTravel());
 
             smartMenu.Activate();
         }

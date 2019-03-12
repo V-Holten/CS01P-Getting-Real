@@ -8,13 +8,6 @@ namespace Presentation_Layer
 {
     internal class CreateTravel : IMenuItem
     {
-        private AccessPoint accessPoint;
-
-        public CreateTravel(AccessPoint accessPoint)
-        {
-            this.accessPoint = accessPoint;
-        }
-
         public bool Activate(SmartMenu smartMenu)
         {
             string title = Request.String("Rejse godtgørelsens titel:");
@@ -22,13 +15,13 @@ namespace Presentation_Layer
             DateTime returnDate = Request.DateTime("Hvorn år kom du hjem?");
             bool overNightStay = Request.Bool("Overnattede du under rejsen?");
             double credit = Request.Double("Hvor meget i kontant havde du med?");
-            Travel travel = new Travel(title, accessPoint.Employee, departureDate, returnDate, overNightStay, credit);
+            Travel travel = new Travel(title, AccessPoint.Instance.Employee, departureDate, returnDate, overNightStay, credit);
 
             SmartMenu sm = new SmartMenu(travel.Title, "Anullér");
 
             sm.Attach(new AddExpenditure(travel));
 
-            sm.Attach(new AddCompensationToDepartment(accessPoint.Department, travel));
+            sm.Attach(new AddCompensationToDepartment(AccessPoint.Instance.Department, travel));
 
             sm.Activate();
 

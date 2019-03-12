@@ -10,10 +10,25 @@ namespace Domain_Layer
     public class AccessPoint
     {
         public readonly Employee Employee;
-           
-        public AccessPoint(int employeeId)
+
+        private static AccessPoint instance;
+
+        public static AccessPoint Instance
+        {
+            get
+            {
+                return instance;
+            }
+        }
+
+        private AccessPoint(int employeeId)
         {
             Employee = Employee.GetEmployeeById(employeeId);
+        }
+
+        public static void AssignSingleton(int employeeId)
+        {
+            instance = new AccessPoint(employeeId);
         }
 
         public Department Department => Employee.Department;

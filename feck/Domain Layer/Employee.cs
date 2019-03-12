@@ -11,7 +11,7 @@ namespace Domain_Layer
 {
     public class Employee
     {
-        private static readonly string ConnectionString = "Server=EALSQL1.eal.local; Database=B_DB17_2018; User Id=B_STUDENT17; Password=B_OPENDB17;";
+        private static readonly string ConnectionString = Properties.Settings1.Default.DB_ConnectionString;
         public readonly int Id;
         public readonly string Fullname;
         public readonly Department Department;

@@ -11,7 +11,7 @@ namespace Domain_Layer.Compensations
 {
     public abstract class Compensation : ISavable
     {
-        protected static readonly string ConnectionString = "Server=EALSQL1.eal.local; Database=B_DB17_2018; User Id=B_STUDENT17; Password=B_OPENDB17;";
+        protected static readonly string ConnectionString = Properties.Settings1.Default.DB_ConnectionString;
         public int Id { get; internal set; }
         protected readonly List<Appendix> appendices = new List<Appendix>();
         public readonly string Title;

@@ -12,16 +12,9 @@ namespace Presentation_Layer
 {
     class ShowAllCompensations : IMenuItem
     {
-        private AccessPoint accessPoint;
-
-        public ShowAllCompensations(AccessPoint accessPoint)
-        {
-            this.accessPoint = accessPoint;
-        }
-
         public bool Activate(SmartMenu smartMenu)
         {
-            List<Compensation> compensations = accessPoint.GetAllCompensations();
+            List<Compensation> compensations = AccessPoint.Instance.GetAllCompensations();
 
             SmartMenu sm = new SmartMenu("Alle godtgørelser", "Tilbage");
 
